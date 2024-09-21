@@ -1,27 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satoshi:wght@500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: theme("colors.background");
+  --foreground: theme("colors.foreground");
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: theme("colors.background-dark");
+    --foreground: theme("colors.foreground-dark");
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-foreground bg-background overflow-auto font-sans;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.title {
+  @apply font-inter text-title font-black text-left;
 }
+
+.heading {
+  @apply font-inter text-heading font-black text-left;
+}
+
+.content {
+  @apply font-satoshi text-content font-medium text-left;
+}
+
+.content2 {
+  @apply font-satoshi text-content2 text-left;
+}
+
+.content3 {
+  @apply font-satoshi text-content3 font-medium text-left;
+}
+
+.button {
+  @apply font-satoshi text-button  font-medium text-left;
+}
+
+.globe::before {
+  content: url("/icons/globe.svg");
+  display: inline-block;
+  margin-right: 1rem;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: inherit;
+}
+
+.arrowdown::after {
+  content: url("/icons/arrowdown.svg");
+  display: inline-block;
+  margin-left: 1rem;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: inherit;
+}
+
+.arrowup::after {
+  content: url("/icons/arrowup.svg");
+  display: inline-block;
+  margin-left: 1rem;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: inherit;
+}
+
+.linkedin::before {
+  content: url("/icons/linkedin.svg");
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: inherit;
+}
+.github::before {
+  content: url("/icons/github.svg");
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: inherit;
+}
+.medium::before {
+  content: url("/icons/medium.svg");
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: inherit;
+}
+.download::before {
+  content: url("/icons/download.svg");
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background: inherit;
+}
+
+/* * {
+  border: 1px solid red;
+} */
