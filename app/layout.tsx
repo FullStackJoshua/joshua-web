@@ -4,6 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
+import Contact from "@/components/sections/Contact";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-noiseonwhite">
         <Header />
-        {children} <Footer />
+        {children} <Contact /> <Footer />
       </body>
     </html>
   );

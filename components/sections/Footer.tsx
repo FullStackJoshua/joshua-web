@@ -1,23 +1,27 @@
 import React from "react";
+import Link from "next/link";
+import { footerItems } from "@/data"; // Adjust the path as needed
 
-function Footer() {
+function Footer({ className }: { className?: string }) {
   return (
-    <footer className="flex justify-between items-center py-8 px-20 button text-gray bg-noiseonwhite">
-      <div className="flex gap-5">
-        <a href="#" className="linkedin">
-          LinkedIn
-        </a>
-        <a href="#" className="github">
-          GitHub
-        </a>
-        <a href="#" className=" medium">
-          Blogspace
-        </a>
-        <a href="#" className=" download">
-          My Resume
-        </a>
+    <footer className={`flex justify-between items-center py-8 px-20 bg-noiseonwhite ${className}`}>
+      {/* Social Links */}
+      <div className="flex gap-8">
+        {footerItems.map((item) => (
+          <Link
+            key={item.path}
+            href={item.path}
+            className={`button text-[#7d7d7d] ${item.className}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.title}
+          </Link>
+        ))}
       </div>
-      <p>© 2024. Joshua Lim</p>
+
+      {/* Copyright Section */}
+      <p className="button text-[#7d7d7d]">© 2024. Joshua Lim</p>
     </footer>
   );
 }

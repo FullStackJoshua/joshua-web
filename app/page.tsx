@@ -11,8 +11,6 @@ export default function Home() {
         <Hero />
         <LittleAboutMe />
         <LittleProjects />
-        <Contact />
-
         {/* <Marquee /> */}
       </div>
     </main>

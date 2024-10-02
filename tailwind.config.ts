@@ -10,9 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         black: "#131313",
-        white: {
-          25: "#F5F5F5",
-        },
+        white: "#F5F5F5",
         gray: "#7D7D7D",
         background: "#F5F5F5",
         foreground: "#171717",
@@ -27,7 +25,7 @@ const config: Config = {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        satoshi: ["Satoshi Variable", "sans-serif"],
+        satoshi: ["Satoshi", "sans-serif"], 
       },
       fontSize: {
         title: [

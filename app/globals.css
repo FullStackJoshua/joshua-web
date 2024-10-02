@@ -6,14 +6,14 @@
 @tailwind utilities;
 
 :root {
-  --background: theme("colors.background");
-  --foreground: theme("colors.foreground");
+  --background: #ffffff;
+  --foreground: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: theme("colors.background-dark");
-    --foreground: theme("colors.foreground-dark");
+    --background: #000000;
+    --foreground: #ffffff;
   }
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 .button {
-  @apply font-satoshi text-button  font-medium text-left;
+  @apply font-satoshi text-button font-medium text-left;
 }
 
 .globe::before {
@@ -84,6 +84,7 @@ body {
   vertical-align: middle;
   background: inherit;
 }
+
 .github::before {
   content: url("/icons/github.svg");
   display: inline-block;
@@ -93,6 +94,7 @@ body {
   vertical-align: middle;
   background: inherit;
 }
+
 .medium::before {
   content: url("/icons/medium.svg");
   display: inline-block;
@@ -102,6 +104,7 @@ body {
   vertical-align: middle;
   background: inherit;
 }
+
 .download::before {
   content: url("/icons/download.svg");
   display: inline-block;
@@ -112,6 +115,34 @@ body {
   background: inherit;
 }
 
+.coffee::before {
+  content: url("/icons/coffee.svg");
+  display: inline-block;
+  margin-right: 1rem;
+  width: 30px;
+  height: 30px;
+  vertical-align: top;
+}
+
+.gym::before {
+  content: url("/icons/gym.svg");
+  display: inline-block;
+  margin-right: 1rem;
+  width: 30px;
+  height: 30px;
+  vertical-align: top;
+}
+
+.compass::before {
+  content: url("/icons/compass.svg");
+  display: inline-block;
+  margin-right: 1rem;
+  width: 30px;
+  height: 30px;
+  vertical-align: top;
+}
+
+/* Uncomment for debugging */
 /* * {
   border: 1px solid red;
 } */
