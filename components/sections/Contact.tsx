@@ -15,73 +15,82 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("All fields are required!");
+      return;
+    }
     console.log("Form Data:", formData);
+    alert("Message sent successfully!");
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <section className="px-20 py-40 bg-noiseonwhite" id="contact">
-      <h1 className="title text-black text-6xl pb-20">
+    <section className="px-5 py-16" id="contact">
+      <h1 className="title mb-10">
         HAVE A PLAN? LET’S <br /> CONNECT -
       </h1>
 
-      <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-8">
-        {/* Name Field */}
-        <div className="flex flex-col">
-          <label htmlFor="name" className="text-gray text-lg pb-2">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="border-b-2 border-gray focus:outline-none focus:border-black px-2 py-1 text-xl bg-transparent"
-            required
-          />
-        </div>
+      <div className="flex items-center justify-center">
+        <form onSubmit={handleSubmit} className="w-full max-w-md content3 text-gray ">
+          {/* Name Field */}
+          <div className="mb-6">
+            <label htmlFor="name" className="block mb-1 font-medium ">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              aria-label="Name"
+              className="w-full border-b border-gray-300 bg-transparent text-black focus:outline-none focus:border-black py-2 appearance-none"
+            />
+          </div>
 
-        {/* Email Field */}
-        <div className="flex flex-col">
-          <label htmlFor="email" className="text-gray text-lg pb-2">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="border-b-2 border-gray focus:outline-none focus:border-black px-2 py-1 text-xl bg-transparent"
-            required
-          />
-        </div>
+          {/* Email Field */}
+          <div className="mb-6">
+            <label htmlFor="email" className="block mb-1  font-medium ">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              aria-label="Email"
+              className="w-full border-b-1 border-gray-300 bg-transparent text-black focus:outline-none focus:border-black py-2 appearance-none"
+            />
+          </div>
 
-        {/* Message Field */}
-        <div className="flex flex-col col-span-2">
-          <label htmlFor="message" className="text-gray text-lg pb-2">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="border-b-2 border-gray focus:outline-none focus:border-black px-2 py-1 text-xl bg-transparent h-32"
-            required
-          />
-        </div>
+          {/* Message Field */}
+          <div className="mb-6">
+            <label htmlFor="message" className="block mb-1  font-medium ">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              aria-label="Message"
+              rows={4}
+              className="w-full border-b border-gray-300 bg-transparent text-black focus:outline-none focus:border-black py-2 appearance-none resize-none"
+            ></textarea>
+          </div>
 
-        {/* Submit Button */}
-        <div className="col-span-3 mt-6">
-          <button
-            type="submit"
-            className="py-2 px-6 bg-black text-white text-lg font-semibold rounded hover:bg-gray800 transition-colors"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+          {/* Submit Button */}
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 active:bg-gray-900 transition text-button"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
   );
 };

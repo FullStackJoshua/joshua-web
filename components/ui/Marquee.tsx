@@ -1,80 +1,83 @@
-import React from "react";
+"use client";
 
-export const Marquee = () => {
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "Python",
+  "SQL",
+  "Java",
+  "React",
+  "Tailwind",
+  "Next",
+  "Vite",
+  "Git",
+  "GitHub",
+  "VS Code",
+  "Postman",
+  "MySQL",
+  "MongoDB",
+  "MSSQL",
+];
+
+const Marquee: React.FC = () => {
+  const marqueeTopRef = useRef<HTMLDivElement>(null);
+  const marqueeBottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const marqueeTop = marqueeTopRef.current;
+    const marqueeBottom = marqueeBottomRef.current;
+
+    if (marqueeTop && marqueeBottom) {
+      // Top Marquee Animation (Right to Left)
+      gsap.to(marqueeTop, {
+        x: "-100%",
+        duration: 20,
+        ease: "linear",
+        repeat: -1,
+      });
+
+      // Bottom Marquee Animation (Left to Right)
+      gsap.to(marqueeBottom, {
+        x: "100%",
+        duration: 20,
+        ease: "linear",
+        repeat: -1,
+      });
+    }
+  }, []);
+
   return (
-    <section>
-      <div className="absolute w-[2178px] h-[55px] top-[2144px] left-[154px]">
-        <div className="absolute w-[1739px] h-[55px] top-0 left-0">
-          <div className="relative h-[55px]">
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 -left-0.5 rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">VS Code</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[206px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">Typescript</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[430px] rounded-[50px] border-2 border-solid border-white shadow-[0px_4px_4px_#00000040]">
-              <div className="relative w-fit content3 text-white">HTML + CSS</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[681px] rounded-[50px] border-2 border-solid border-white shadow-[0px_4px_4px_#00000040]">
-              <div className="relative w-fit content3 text-white">Javascript</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[903px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">Postman</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1110px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">MongoDB</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1332px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">Postman</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1539px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">MongoDB</div>
-            </div>
-          </div>
-        </div>
-        <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1771px] rounded-[50px] border-2 border-solid border-white">
-          <div className="relative w-fit content3 text-white">Postman</div>
-        </div>
-        <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1978px] rounded-[50px] border-2 border-solid border-white">
-          <div className="relative w-fit content3 text-white">MongoDB</div>
-        </div>
+    <div className="bg-black py-10 overflow-hidden">
+      {/* Top Marquee */}
+      <div ref={marqueeTopRef} className="flex gap-6 whitespace-nowrap w-max">
+        {[...skills, ...skills].map((skill, index) => (
+          <span
+            key={index}
+            className="text-white border border-white px-4 py-2 rounded-full text-sm"
+          >
+            {skill}
+          </span>
+        ))}
       </div>
-      <div className="absolute w-[2178px] h-[55px] top-[2238px] left-0">
-        <div className="absolute w-[1739px] h-[55px] top-0 left-0">
-          <div className="relative h-[55px]">
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 -left-0.5 rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">VS Code</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[206px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">Typescript</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[430px] rounded-[50px] border-2 border-solid border-white shadow-[0px_4px_4px_#00000040]">
-              <div className="relative w-fit content3 text-white">HTML + CSS</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[681px] rounded-[50px] border-2 border-solid border-white shadow-[0px_4px_4px_#00000040]">
-              <div className="relative w-fit content3 text-white">Javascript</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[903px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">Postman</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1110px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">MongoDB</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1332px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">Postman</div>
-            </div>
-            <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1539px] rounded-[50px] border-2 border-solid border-white">
-              <div className="relative w-fit content3 text-white">MongoDB</div>
-            </div>
-          </div>
-        </div>
-        <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1771px] rounded-[50px] border-2 border-solid border-white">
-          <div className="relative w-fit content3 text-white">Postman</div>
-        </div>
-        <div className="inline-flex items-center justify-center gap-2.5 px-11 py-3 absolute -top-0.5 left-[1978px] rounded-[50px] border-2 border-solid border-white">
-          <div className="relative w-fit content3 text-white">MongoDB</div>
-        </div>
+
+      {/* Bottom Marquee */}
+      <div ref={marqueeBottomRef} className="flex gap-6 whitespace-nowrap w-max mt-5">
+        {[...skills, ...skills].map((skill, index) => (
+          <span
+            key={index}
+            className="text-white border border-white px-4 py-2 rounded-full text-sm"
+          >
+            {skill}
+          </span>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
+
+export default Marquee;

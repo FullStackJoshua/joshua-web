@@ -2,10 +2,8 @@
 import React, { useState } from "react";
 
 function LittleProjects() {
-  // Pagination state: 0 for first page, 1 for second
   const [pageIndex, setPageIndex] = useState(0);
 
-  // Data for the projects
   const projects = [
     {
       year: 2023,
@@ -22,11 +20,11 @@ function LittleProjects() {
   ];
 
   const handleNext = () => {
-    setPageIndex((prevIndex) => (prevIndex + 1) % 2); // Loops through pages
+    setPageIndex((prevIndex) => (prevIndex + 1) % 2);
   };
 
   const handlePrev = () => {
-    setPageIndex((prevIndex) => (prevIndex === 0 ? 1 : prevIndex - 1)); // Loops backwards
+    setPageIndex((prevIndex) => (prevIndex === 0 ? 1 : prevIndex - 1));
   };
 
   return (

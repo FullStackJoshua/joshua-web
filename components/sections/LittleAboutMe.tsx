@@ -1,25 +1,22 @@
-import React from "react";
-import Image from "next/image";
-
 function LittleAboutMe() {
   return (
-    <section className="flex flex-row bg-cubeBlack bg-black px-20 pb-80">
-      <article className="pt-80 sm:pt-20 lg:pt-80">
-        <header>
-          <p className="heading text-white pb-36">A LITTLE ABOUT ME -</p>
-        </header>
-        <p className="content text-white pl-10 sm:pl-10 sm:pr-10 lg:pl-24 lg:pr-52">
+    <section className="flex flex-row bg-black pt-20 px-6">
+      <article className="content text-white">
+        <header className="title text-white pb-12">A LITTLE ABOUT ME -</header>
+        <p className="pb-2 ">
           I&#39;m a passionate and innovative software developer, committed to bringing your digital
           visions to life. Along my developer journey, I&#39;ve gained expertise in front-end and
           back-end development, database management, and project leadership.
         </p>
-      </article>
-      <article className="pt-80 sm:pt-20 lg:pt-80">
-        <div className="button flex text-gray pt-60 pb-16 arrowup">(Know More About Me)</div>
-        <p className="content text-white">
+
+        <p>
           I am enthusiastic about utilizing the newest technologies to provide creative solutions
           and am always excited to network with professionals who share the same mindset.
         </p>
+        <div className="flex items-center pt-10">
+          <span className="button text-gray ">(Know More About Me)</span>
+          <img src="/icons/arrowup.svg" alt="Arrow Up Icon" className="w-3 h-3 ml-2" />
+        </div>
       </article>
     </section>
   );

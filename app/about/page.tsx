@@ -39,14 +39,21 @@ const about = () => {
           - BUT THERE IS MORE TO <br />
           ME
         </h2>
-        <h3 className="content2  pb-20 font-bold text-gray coffee">Coffee Aficionado</h3>
+        <div className="flex items-center pb-20">
+          <img src="/icons/coffee.svg" alt="Coffee Icon" className="w-8 h-8 mr-2" />
+          <h3 className="content2 font-bold text-gray">Coffee Aficionado</h3>
+        </div>
+
         <p className="content">
           I'm a coffee aficionado who loves sipping on iced <br />
           lattes and cortados from every corner café
           <br /> I can find.
         </p>
+        <div className="flex items-center pb-20">
+          <img src="/icons/gym.svg" alt="Gym Icon" className="w-8 h-8 mr-2" />
+          <h3 className="content2 font-bold text-gray">Gym Extraordinaire</h3>
+        </div>
 
-        <h3 className="content2  pb-20 font-bold text-gray gym">Gym Extraordinaire</h3>
         <p className="content">
           When I'm not savoring my coffee fix, you can find me
           <br /> at the gym, where I'm basically a rep-chasing, sweat-
@@ -54,7 +61,11 @@ const about = () => {
           dripping dynamo.
         </p>
 
-        <h3 className="content2  pb-20 font-bold text-gray compass">Urban Explorer</h3>
+        <div className="flex items-center pb-20">
+          <img src="/icons/compass.svg" alt="compass Icon" className="w-8 h-8 mr-2" />
+          <h3 className="content2 font-bold text-gray"> Urban Explorer</h3>
+        </div>
+
         <p className="content">
           In my downtime, I'm a city sleuth, discovering hidden
           <br /> gems and quirky spots. Every stroll turns into an

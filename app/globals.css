@@ -7,13 +7,13 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #000000;
+  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
-    --foreground: #ffffff;
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
@@ -45,101 +45,11 @@ body {
   @apply font-satoshi text-button font-medium text-left;
 }
 
-.globe::before {
-  content: url("/icons/globe.svg");
-  display: inline-block;
-  margin-right: 1rem;
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  background: inherit;
-}
-
-.arrowdown::after {
-  content: url("/icons/arrowdown.svg");
-  display: inline-block;
-  margin-left: 1rem;
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  background: inherit;
-}
-
-.arrowup::after {
-  content: url("/icons/arrowup.svg");
-  display: inline-block;
-  margin-left: 1rem;
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  background: inherit;
-}
-
-.linkedin::before {
-  content: url("/icons/linkedin.svg");
-  display: inline-block;
-  margin-right: 0.5rem;
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  background: inherit;
-}
-
-.github::before {
-  content: url("/icons/github.svg");
-  display: inline-block;
-  margin-right: 0.5rem;
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  background: inherit;
-}
-
-.medium::before {
-  content: url("/icons/medium.svg");
-  display: inline-block;
-  margin-right: 0.5rem;
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  background: inherit;
-}
-
-.download::before {
-  content: url("/icons/download.svg");
-  display: inline-block;
-  margin-right: 0.5rem;
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  background: inherit;
-}
-
-.coffee::before {
-  content: url("/icons/coffee.svg");
-  display: inline-block;
-  margin-right: 1rem;
-  width: 30px;
-  height: 30px;
-  vertical-align: top;
-}
-
-.gym::before {
-  content: url("/icons/gym.svg");
-  display: inline-block;
-  margin-right: 1rem;
-  width: 30px;
-  height: 30px;
-  vertical-align: top;
-}
-
+.coffee::before,
+.gym::before,
 .compass::before {
-  content: url("/icons/compass.svg");
-  display: inline-block;
-  margin-right: 1rem;
   width: 30px;
   height: 30px;
-  vertical-align: top;
 }
 
 /* Uncomment for debugging */
