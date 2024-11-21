@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import React, { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const skills = [
   "HTML",
@@ -24,58 +24,78 @@ const skills = [
   "MSSQL",
 ];
 
-const Marquee: React.FC = () => {
-  const marqueeTopRef = useRef<HTMLDivElement>(null);
-  const marqueeBottomRef = useRef<HTMLDivElement>(null);
+const Marquee = () => {
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const [contentWidth, setContentWidth] = useState(0);
 
   useEffect(() => {
-    const marqueeTop = marqueeTopRef.current;
-    const marqueeBottom = marqueeBottomRef.current;
-
-    if (marqueeTop && marqueeBottom) {
-      // Top Marquee Animation (Right to Left)
-      gsap.to(marqueeTop, {
-        x: "-100%",
-        duration: 20,
-        ease: "linear",
-        repeat: -1,
-      });
-
-      // Bottom Marquee Animation (Left to Right)
-      gsap.to(marqueeBottom, {
-        x: "100%",
-        duration: 20,
-        ease: "linear",
-        repeat: -1,
-      });
+    if (marqueeRef.current) {
+      // Dynamically calculate the width of the content
+      const width = marqueeRef.current.scrollWidth;
+      setContentWidth(width);
     }
-  }, []);
+  }, [marqueeRef]);
+
+  const marqueeVariants = {
+    animate: {
+      x: [0, -contentWidth], // Use the dynamically calculated width
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 35,
+          ease: "linear",
+        },
+      },
+    },
+  };
 
   return (
-    <div className="bg-black py-10 overflow-hidden">
+    <div className="relative w-full overflow-hidden py-10">
       {/* Top Marquee */}
-      <div ref={marqueeTopRef} className="flex gap-6 whitespace-nowrap w-max">
+      <motion.div
+        ref={marqueeRef}
+        className="flex whitespace-nowrap w-max"
+        variants={marqueeVariants}
+        animate="animate"
+      >
         {[...skills, ...skills].map((skill, index) => (
           <span
             key={index}
-            className="text-white border border-white px-4 py-2 rounded-full text-sm"
+            className="border border-white px-4 py-2 rounded-full mx-2 text-sm flex-shrink-0"
           >
             {skill}
           </span>
         ))}
-      </div>
+      </motion.div>
 
-      {/* Bottom Marquee */}
-      <div ref={marqueeBottomRef} className="flex gap-6 whitespace-nowrap w-max mt-5">
+      {/* Bottom Marquee (Reverse Direction) */}
+      <motion.div
+        className="flex whitespace-nowrap w-max mt-5"
+        variants={{
+          animate: {
+            x: [0, contentWidth],
+            transition: {
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 35,
+                ease: "linear",
+              },
+            },
+          },
+        }}
+        animate="animate"
+      >
         {[...skills, ...skills].map((skill, index) => (
           <span
             key={index}
-            className="text-white border border-white px-4 py-2 rounded-full text-sm"
+            className="border border-white px-4 py-2 rounded-full mx-2 text-sm flex-shrink-0"
           >
             {skill}
           </span>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

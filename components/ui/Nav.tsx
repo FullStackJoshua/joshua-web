@@ -5,7 +5,7 @@ import { navItems } from "@/data";
 
 export const Nav = ({ className }: { className?: string }) => {
   const [isMounted, setIsMounted] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // State for controlling the mobile menu
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);

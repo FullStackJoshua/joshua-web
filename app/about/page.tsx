@@ -1,80 +1,69 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
 
-const about = () => {
+const AboutPage = () => {
+  const interests = [
+    {
+      icon: "/icons/coffee.svg",
+      alt: "Coffee Icon",
+      title: "Coffee Aficionado",
+      description:
+        "I’m a coffee aficionado who loves sipping on iced lattes and iced Americanos from every corner café I can find.",
+    },
+    {
+      icon: "/icons/gym.svg",
+      alt: "Gym Icon",
+      title: "Gym Extraordinaire",
+      description:
+        "When I’m not savoring my coffee fix, you can find me at the gym, where I’m basically a rep-chasing, sweat-dripping dynamo.",
+    },
+    {
+      icon: "/icons/compass.svg",
+      alt: "Compass Icon",
+      title: "Urban Explorer",
+      description:
+        "In my downtime, I’m a city sleuth, discovering hidden gems and quirky spots. Every stroll turns into an adventure!",
+    },
+  ];
+
   return (
-    <section className="px-20 py-20 bg-noiseonwhite text-black">
-      {/* Main Title Section */}
-
-      <div className="flex grid-col mb-20 justify-between">
-        <div>
-          <h1 className="title font-black leading-tight">
-            PART-TIME <br /> I CODE,
-          </h1>
-
-          <h1 className="title font-black leading-tight pl-28 pt-10">
-            FULL-TIME <br />I DEBUG -
-          </h1>
-          <p className="text-gray content leading-relaxed mt-64 mb-8 pl-24">
-            Growing up in bustling New York, I see software <br />
-            development as a reflection of my life – always <br /> evolving and full of
-            possibilities. I'm excited to <br />
-            see where this journey takes me.
-            <br />
-            <br />
-          </p>
-          <p className="text-gray content leading-relaxed mb-8 pl-10">
-            Onward and upward! I’m building my biz and
-            <br /> teaming up with fellow innovators—small steps,
-            <br /> grand adventures!
-          </p>
-        </div>
-
-        <Image alt="Portrait of Me" src="/me.svg" width={700} height={840} className="pt-52" />
+    <section className="bg-noiseonwhite text-black  px-7">
+      <div className="space-y-4 mb-10">
+        <h1 className="title text-center">
+          PART-TIME I CODE, <br /> FULL-TIME I DEBUG -
+        </h1>
+        <p className="content2 text-gray">
+          Growing up in bustling New York, I see software development as a reflection of city life -
+          always evolving and full of possibilities. I’m excited to see where this journey takes me.
+          <br />
+          <br />
+          Onward and upward! I’m building my biz and teaming up with fellow innovators—small steps,
+          grand adventures!
+        </p>
       </div>
 
-      <div className="grid grid-cols-[1fr,2fr] grid-rows-3 pl-24">
-        <div></div>
-        <h2 className="heading font-bold">
-          - BUT THERE IS MORE TO <br />
-          ME
-        </h2>
-        <div className="flex items-center pb-20">
-          <img src="/icons/coffee.svg" alt="Coffee Icon" className="w-8 h-8 mr-2" />
-          <h3 className="content2 font-bold text-gray">Coffee Aficionado</h3>
-        </div>
+      <div className="flex justify-center mb-10">
+        <img src="/me.svg" alt="Profile Picture" className="w-72 h-80 rounded-lg" />
+      </div>
 
-        <p className="content">
-          I'm a coffee aficionado who loves sipping on iced <br />
-          lattes and cortados from every corner café
-          <br /> I can find.
-        </p>
-        <div className="flex items-center pb-20">
-          <img src="/icons/gym.svg" alt="Gym Icon" className="w-8 h-8 mr-2" />
-          <h3 className="content2 font-bold text-gray">Gym Extraordinaire</h3>
-        </div>
+      <div className="space-y-4 mb-10">
+        <h2 className="title">- BUT THERE IS MORE TO ME</h2>
+      </div>
 
-        <p className="content">
-          When I'm not savoring my coffee fix, you can find me
-          <br /> at the gym, where I'm basically a rep-chasing, sweat-
-          <br />
-          dripping dynamo.
-        </p>
-
-        <div className="flex items-center pb-20">
-          <img src="/icons/compass.svg" alt="compass Icon" className="w-8 h-8 mr-2" />
-          <h3 className="content2 font-bold text-gray"> Urban Explorer</h3>
-        </div>
-
-        <p className="content">
-          In my downtime, I'm a city sleuth, discovering hidden
-          <br /> gems and quirky spots. Every stroll turns into an
-          <br />
-          adventure!
-        </p>
+      <div className="space-y-8">
+        {interests.map((interest, index) => (
+          <div key={index} className="flex items-start space-x-4">
+            <img src={interest.icon} alt={interest.alt} className="w-4 h-4 flex-shrink-0" />
+            <div>
+              <h3 className="content">{interest.title}</h3>
+              <p className="content2 text-gray pt-2">{interest.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
-export default about;
+export default AboutPage;

@@ -30,15 +30,15 @@ body {
 }
 
 .content {
-  @apply font-satoshi text-content font-medium text-left;
+  @apply font-satoshi text-content font-bold text-left;
 }
 
 .content2 {
-  @apply font-satoshi text-content2 text-left;
+  @apply font-satoshi text-content2 font-medium text-left;
 }
 
 .content3 {
-  @apply font-satoshi text-content3 font-medium text-left;
+  @apply font-satoshi text-content3 text-left;
 }
 
 .button {

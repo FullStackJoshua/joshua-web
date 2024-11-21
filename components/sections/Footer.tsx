@@ -26,7 +26,7 @@ function Footer({ className }: { className?: string }) {
       </div>
 
       {/* Copyright Section */}
-      <p className="text-center mt-6 md:mt-0 md:text-right text-gray text-content3">
+      <p className="text-center mt-6 md:mt-0 md:text-right text-gray content2">
         © 2024. Joshua Lim
       </p>
     </footer>

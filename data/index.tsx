@@ -15,3 +15,24 @@ export const footerItems = [
   { title: "Blogspace", path: "https://techpediablogs.com/", icon: "/icons/medium.svg" },
   { title: "My Resume", path: "#", icon: "/icons/download.svg" },
 ];
+
+export const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "Python",
+  "SQL",
+  "Java",
+  "React",
+  "Tailwind",
+  "Next",
+  "Vite",
+  "Git",
+  "GitHub",
+  "VS Code",
+  "Postman",
+  "MySQL",
+  "MongoDB",
+  "MSSQL",
+];

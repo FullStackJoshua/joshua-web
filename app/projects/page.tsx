@@ -1,115 +1,69 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
 
 const ProjectPage = () => {
   return (
-    <section className="bg-noiseonblack bg-black text-white px-20 py-24">
-      {/* Header Section */}
-      <header className="flex justify-between items-center mb-12">
-        <h1 className="title font-bold text-white">
-          SANDBOX <br />
-          PROJECT
-        </h1>
-        <span className="text-gray-500 text-lg">01 / 02</span>
+    <section className="bg-noiseonblack bg-black text-white py-10 px-5">
+      <header className="flex justify-between items-center mb-8">
+        <h1 className="title">SANDBOX PROJECT</h1>
+        <button className="content text-gray">More Projects</button>
       </header>
 
-      {/* Project Image */}
-      <div className="flex justify-center mb-16">
-        <Image
-          alt="Project Image"
-          src="/project-main.png" // Change to your actual image path
-          width={800}
-          height={450}
-          className="rounded-md"
-        />
-      </div>
-
-      {/* About the Project */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">About The Project</h2>
-          <p className="text-gray-400 leading-relaxed">
-            Meet TaskMaster Pro, the ultimate productivity wizard designed to help individuals and
-            teams get their tasks in order. Whether it’s keeping track of daily goals or managing a
-            full-blown project, TaskMaster Pro helps bring clarity and order to your work life.
-          </p>
+      <div className="space-y-8">
+        <div className="rounded-lg overflow-hidden">
+          <img
+            src="/path/to/project-image.png"
+            alt="Sandbox Project"
+            className="w-full object-cover"
+          />
         </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Project Details</h2>
-          <div className="flex flex-col gap-4 text-gray-400">
-            <div className="flex justify-between">
-              <span>Project Role:</span>
-              <span>Frontend & Backend</span>
+        <div className="space-y-6">
+          <h2 className="heading">About This Project</h2>
+          <p className="content2 text-gray">
+            This project focuses on creating solutions for enhanced productivity using modern
+            technologies like React and Node.js. It streamlines workflows, reduces complexity, and
+            scales for business needs.
+          </p>
+
+          {/* Project Details */}
+          <div className="grid grid-cols-2 gap-4 content2">
+            <div>
+              <h3 className="font-bold">Project Stack</h3>
+              <p className="text-gray">Frontend & Backend</p>
             </div>
-            <div className="flex justify-between">
-              <span>Completion:</span>
-              <span>August 2024</span>
+            <div>
+              <h3 className="font-bold">Duration</h3>
+              <p className="text-gray">August 2024</p>
             </div>
-            <div className="flex justify-between">
-              <span>Category:</span>
-              <span>Personal Side Project</span>
+            <div>
+              <h3 className="font-bold">Category</h3>
+              <p className="text-gray">Private Side Project</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Gallery Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-        <div>
-          <Image
-            alt="Gallery Image 1"
-            src="/project-gallery-1.png" // Change to your actual image path
-            width={400}
-            height={300}
-            className="rounded-md"
-          />
-        </div>
-        <div>
-          <Image
-            alt="Gallery Image 2"
-            src="/project-gallery-2.png" // Change to your actual image path
-            width={400}
-            height={300}
-            className="rounded-md"
-          />
-        </div>
-        <div>
-          <Image
-            alt="Gallery Image 3"
-            src="/project-gallery-3.png" // Change to your actual image path
-            width={400}
-            height={300}
-            className="rounded-md"
-          />
-        </div>
-        <div>
-          <Image
-            alt="Gallery Image 4"
-            src="/project-gallery-4.png" // Change to your actual image path
-            width={400}
-            height={300}
-            className="rounded-md"
-          />
-        </div>
+      {/* Additional Images */}
+      <div className="mt-10 space-y-6">
+        {[1, 2, 3, 4, 5].map((_, index) => (
+          <div key={index} className="rounded-lg overflow-hidden">
+            <img
+              src="/path/to/secondary-image.png"
+              alt={`Project Screenshot ${index + 1}`}
+              className="w-full object-cover"
+            />
+          </div>
+        ))}
       </div>
 
-      {/* Technologies Used */}
-      <div className="mb-16">
-        <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
-        <p className="text-gray-400 leading-relaxed">
-          TaskMaster Pro leverages cutting-edge technologies for both front-end and back-end
-          development. React was used for creating interactive UIs, while Node.js and Express
-          powered the back-end for task management and database operations.
-        </p>
-      </div>
-
-      {/* Pagination Controls */}
-      <div className="flex justify-between items-center">
-        <button className="text-xl font-semibold text-gray-400 hover:text-white transition-colors">
+      {/* Navigation Buttons */}
+      <div className="flex justify-between mt-10">
+        <button className="text-sm px-4 py-2 border border-white rounded-lg hover:bg-gray-800 transition">
           &lt; LAST
         </button>
-        <button className="text-xl font-semibold text-gray-400 hover:text-white transition-colors">
+        <button className="text-sm px-4 py-2 border border-white rounded-lg hover:bg-gray-800 transition">
           NEXT &gt;
         </button>
       </div>

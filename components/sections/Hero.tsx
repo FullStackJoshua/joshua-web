@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function Hero() {
   return (
-    <section className="grid grid-rows-auto gap-11 px-7 lg:mx-16 lg:grid lg:grid-rows-4">
+    <section className="grid grid-rows-auto gap-11 px-7 pb-16 lg:mx-16 lg:grid lg:grid-rows-4">
       <header className="title lg:text-lg-title lg:col-span-4">
         <h1>
           HI THERE - <br />

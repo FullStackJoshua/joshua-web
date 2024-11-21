@@ -1,8 +1,8 @@
 function LittleAboutMe() {
   return (
-    <section className="flex flex-row bg-black pt-20 px-6">
-      <article className="content text-white">
-        <header className="title text-white pb-12">A LITTLE ABOUT ME -</header>
+    <section className="flex flex-row py-20 px-6">
+      <article className="content">
+        <header className="title pb-12">A LITTLE ABOUT ME -</header>
         <p className="pb-2 ">
           I&#39;m a passionate and innovative software developer, committed to bringing your digital
           visions to life. Along my developer journey, I&#39;ve gained expertise in front-end and

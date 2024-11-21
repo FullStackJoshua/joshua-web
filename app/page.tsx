@@ -6,12 +6,16 @@ import Marquee from "@/components/ui/Marquee";
 
 export default function Home() {
   return (
-    <main className="relative flex justify-center items-center flex-col overflow-x-hidden mx-auto bg-noiseonwhite">
+    <main className="relative flex justify-center items-center flex-col overflow-x-hidden mx-auto">
       <div className="w-full">
-        <Hero />
-        <LittleAboutMe />
-        <Marquee />
-        {/* <LittleProjects /> */}
+        <div className="bg-noiseonwhite">
+          <Hero />
+        </div>
+        <div className="bg-noiseonblack bg-black text-white">
+          <LittleAboutMe />
+          <Marquee />
+          <LittleProjects />
+        </div>
       </div>
     </main>
   );
