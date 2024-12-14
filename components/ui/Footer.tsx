@@ -8,7 +8,6 @@ function Footer({ className }: { className?: string }) {
     <footer
       className={`flex flex-col md:flex-row justify-between items-center py-8 px-5 md:px-20 ${className}`}
     >
-      {/* Social Links */}
       <div className="flex gap-6 justify-center items-center md:justify-start">
         {footerItems.map((item) => (
           <Link
@@ -16,16 +15,21 @@ function Footer({ className }: { className?: string }) {
             href={item.path}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray hover:text-black transition"
+            aria-label={`Go to ${item.title}`}
+            className="flex items-center gap-2 text-gray hover:text-black hover:scale-105 transition"
           >
-            {/* SVG Icon */}
-            <Image src={item.icon} alt={`${item.title} Icon`} width={32} height={32} />
+            <Image
+              src={item.icon}
+              alt={`${item.title} Icon`}
+              width={32}
+              height={32}
+              priority={item.title === "LinkedIn"}
+            />
             <span className="hidden md:inline">{item.title}</span>
           </Link>
         ))}
       </div>
 
-      {/* Copyright Section */}
       <p className="text-center mt-6 md:mt-0 md:text-right text-gray content2">
         © 2024. Joshua Lim
       </p>

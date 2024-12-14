@@ -20,7 +20,7 @@ export const Nav = ({ className }: { className?: string }) => {
   }
 
   return (
-    <div className={`pt-12 pb-12 px-7 bg-noiseonwhite ${className} lg:px-24`}>
+    <div className={`pt-8 pb-8 px-7 bg-noiseonwhite ${className} md:px-24`}>
       <nav className="flex items-center justify-between">
         {/* Logo or Home Link */}
         <Link
