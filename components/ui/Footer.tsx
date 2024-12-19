@@ -6,7 +6,7 @@ import { footerItems } from "@/data";
 function Footer({ className }: { className?: string }) {
   return (
     <footer
-      className={`flex flex-col md:flex-row justify-between items-center py-8 px-5 md:px-20 ${className}`}
+      className={`bg-noiseonwhite flex flex-col md:flex-row justify-between items-center py-8 px-5  button md:text-lgButton md:px-20 ${className}`}
     >
       <div className="flex gap-6 justify-center items-center md:justify-start">
         {footerItems.map((item) => (
@@ -30,9 +30,7 @@ function Footer({ className }: { className?: string }) {
         ))}
       </div>
 
-      <p className="text-center mt-6 md:mt-0 md:text-right text-gray content2">
-        © 2024. Joshua Lim
-      </p>
+      <p className="mt-6 md:mt-0 md:text-right text-gray">© 2024. Joshua Lim</p>
     </footer>
   );
 }

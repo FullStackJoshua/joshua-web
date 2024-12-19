@@ -20,29 +20,21 @@ export const Nav = ({ className }: { className?: string }) => {
   }
 
   return (
-    <div className={`pt-8 pb-8 px-7 bg-noiseonwhite ${className} md:px-24`}>
+    <div className={`relative pt-8 pb-8 px-7 bg-noiseonwhite ${className} md:px-24`}>
       <nav className="flex items-center justify-between">
-        {/* Logo or Home Link */}
-        <Link
-          href="/"
-          className="button text-gray lg:text-lg-button
-      "
-        >
+        <Link href="/" className="button text-gray lg:text-lgButton">
           © 2024
         </Link>
 
-        {/* Desktop Nav Items */}
         <div className="hidden lg:flex space-x-8">
           {navItems.map((item) => (
-            <Link key={item.path} href={item.path} className="button lg:text-lg-button text-gray">
+            <Link key={item.path} href={item.path} className="button lg:text-lgButton text-gray">
               {item.title}
             </Link>
           ))}
         </div>
 
-        {/* Hamburger Icon for Mobile */}
         <button className="md:hidden text-gray focus:outline-none" onClick={toggleMenu}>
-          {/* SVG for Hamburger Icon */}
           <svg
             className="w-6 h-6"
             fill="none"
@@ -60,16 +52,16 @@ export const Nav = ({ className }: { className?: string }) => {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Overlapping */}
       {menuOpen && (
-        <div className="md:hidden mt-4">
-          <ul className="space-y-4">
+        <div className="absolute top-full left-0 w-full bg-white bg-noiseonwhite shadow-lg z-50">
+          <ul className="space-y-4 py-4 px-6">
             {navItems.map((item) => (
               <li key={item.path}>
                 <Link
                   href={item.path}
                   className="block text-gray py-2 px-4 hover:bg-gray-200"
-                  onClick={() => setMenuOpen(false)} // Close menu on click
+                  onClick={() => setMenuOpen(false)}
                 >
                   {item.title}
                 </Link>

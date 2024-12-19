@@ -28,36 +28,34 @@ const AboutPage = () => {
   ];
 
   return (
-    <section className="bg-noiseonwhite text-black  px-7">
-      <div className="space-y-4 mb-10">
-        <h1 className="title text-center">
-          PART-TIME I CODE, <br /> FULL-TIME I DEBUG -
-        </h1>
-        <p className="content2 text-gray">
-          Growing up in bustling New York, I see software development as a reflection of city life -
-          always evolving and full of possibilities. I’m excited to see where this journey takes me.
-          <br />
-          <br />
-          Onward and upward! I’m building my biz and teaming up with fellow innovators—small steps,
-          grand adventures!
-        </p>
-      </div>
+    <section className="bg-noiseonwhite text-black px-7 md:px-24">
+      <header className="title md:text-lgTitle pb-6">
+        PART-TIME I CODE, <br /> <span className="flex justify-end">FULL-TIME I DEBUG -</span>
+      </header>
+      <p className="content text-gray pb-5 md:text-lgContent">
+        Growing up in bustling New York, I see software development as a reflection of city life -
+        always evolving and full of possibilities. I’m excited to see where this journey takes me.
+        <br />
+        <br />
+        Onward and upward! I’m building my biz and teaming up with fellow innovators—small steps,
+        grand adventures!
+      </p>
 
       <div className="flex justify-center mb-10">
         <img src="/me.svg" alt="Profile Picture" className="w-72 h-80 rounded-lg" />
       </div>
 
-      <div className="space-y-4 mb-10">
-        <h2 className="title">- BUT THERE IS MORE TO ME</h2>
+      <div className="mb-10">
+        <h2 className="title  md:text-lgHeading">- BUT THERE IS MORE TO ME</h2>
       </div>
 
       <div className="space-y-8">
         {interests.map((interest, index) => (
           <div key={index} className="flex items-start space-x-4">
-            <img src={interest.icon} alt={interest.alt} className="w-4 h-4 flex-shrink-0" />
+            <img src={interest.icon} alt={interest.alt} className="w-4 h-4" />
             <div>
-              <h3 className="content">{interest.title}</h3>
-              <p className="content2 text-gray pt-2">{interest.description}</p>
+              <h3 className="content md:text-lgContent">{interest.title}</h3>
+              <p className="content2 text-gray pt-2  md:text-lgContent2">{interest.description}</p>
             </div>
           </div>
         ))}

@@ -25,8 +25,8 @@ const Contact = () => {
   };
 
   return (
-    <section className="px-5 py-16" id="contact">
-      <h1 className="title mb-10">
+    <section className="bg-noiseonwhite px-5 py-16 md:px-28" id="contact">
+      <h1 className="title mb-10 md:text-lgTitle">
         HAVE A PLAN? LET’S <br /> CONNECT -
       </h1>
 

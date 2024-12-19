@@ -21,7 +21,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="bg-noiseonwhite overflow-x-hidden">
+      <body className="overflow-x-hidden">
         <Nav />
         {children}
         <Contact />

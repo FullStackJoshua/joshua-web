@@ -5,36 +5,28 @@ import MarqueeItem from "./MarqueeItem";
 
 const Marquee = () => {
   const upperMarquee = [
-    "/01.svg",
-    "/02.svg",
-    "/03.svg",
-    "/04.svg",
-    "/05.svg",
-    "/06.svg",
-    "/07.svg",
-    "/08.svg",
-    "/09.svg",
-    "/10.svg",
-    "/11.svg",
+    { src: "/techStack/01.svg", text: "HTML" },
+    { src: "/techStack/02.svg", text: "CSS" },
+    { src: "/techStack/03.svg", text: "JavaScript" },
+    { src: "/techStack/04.svg", text: "Tailwind" },
+    { src: "/techStack/05.svg", text: "TypeScript" },
+    { src: "/techStack/06.svg", text: "Python" },
+    { src: "/techStack/07.svg", text: "MySQL" },
   ];
+
   const lowerMarquee = [
-    "/12.svg",
-    "/13.svg",
-    "/14.svg",
-    "/15.svg",
-    "/16.svg",
-    "/17.svg",
-    "/18.svg",
-    "/19.svg",
-    "/20.svg",
-    "/21.svg",
-    "/22.svg",
+    { src: "/techStack/09.svg", text: "React" },
+    { src: "/techStack/08.svg", text: "Java" },
+    { src: "/techStack/10.svg", text: "Git" },
+    { src: "/techStack/11.svg", text: "GitHub" },
+    { src: "/techStack/12.svg", text: "VS Code" },
+    { src: "/techStack/13.svg", text: "Postman" },
+    { src: "/techStack/14.svg", text: "Next.Js" },
   ];
 
   return (
-    <div className="container mx-auto py-10 space-y-5">
+    <div className="container mx-auto py-5">
       <MarqueeItem images={upperMarquee} from={"0%"} to={"-100%"} />
-
       <MarqueeItem images={lowerMarquee} from={"-100%"} to={"0%"} />
     </div>
   );

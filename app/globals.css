@@ -22,27 +22,27 @@ body {
 }
 
 .title {
-  @apply font-inter text-title font-black text-left;
+  @apply font-inter text-title tracking-tighter font-black;
 }
 
 .heading {
-  @apply font-inter text-heading font-black text-left;
+  @apply font-inter text-heading tracking-tight font-extrabold;
 }
 
 .content {
-  @apply font-satoshi text-content font-bold text-left;
+  @apply font-satoshi text-content font-medium;
 }
 
 .content2 {
-  @apply font-satoshi text-content2 font-medium text-left;
+  @apply font-satoshi text-content2 font-normal;
 }
 
 .content3 {
-  @apply font-satoshi text-content3 text-left;
+  @apply font-satoshi text-content3 font-normal;
 }
 
 .button {
-  @apply font-satoshi text-button font-medium text-left;
+  @apply font-satoshi text-button font-medium;
 }
 
 .coffee::before,

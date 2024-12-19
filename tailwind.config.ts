@@ -28,82 +28,18 @@ const config: Config = {
         satoshi: ["Satoshi", "sans-serif"],
       },
       fontSize: {
-        // Mobile styles
-        title: [
-          "32px",
-          {
-            lineHeight: "40px",
-            letterSpacing: "-1px",
-          },
-        ],
-        heading: [
-          "24px",
-          {
-            lineHeight: "32px",
-          },
-        ],
-        content: [
-          "16px",
-          {
-            lineHeight: "24px",
-          },
-        ],
-        button: [
-          "14px",
-          {
-            lineHeight: "20px",
-          },
-        ],
-        content2: [
-          "16px",
-          {
-            lineHeight: "24px",
-          },
-        ],
-        content3: [
-          "14px",
-          {
-            lineHeight: "20px",
-          },
-        ],
-
-        // Desktop styles
-        "lg-title": [
-          "144px",
-          {
-            lineHeight: "144px",
-            fontWeight: "900",
-            letterSpacing: "-3%",
-          },
-        ],
-        "lg-heading": [
-          "80px",
-          {
-            fontWeight: "900",
-            lineHeight: "96.82px",
-          },
-        ],
-        "lg-content": [
-          "32px",
-          {
-            fontWeight: "500",
-            lineHeight: "43.2px",
-          },
-        ],
-        "lg-content2": [
-          "32px",
-          {
-            fontWeight: "700",
-            lineHeight: "43.2px",
-          },
-        ],
-        "lg-button": [
-          "24px",
-          {
-            fontWeight: "500",
-            lineHeight: "32.4px",
-          },
-        ],
+        title: "36px",
+        heading: "30px",
+        content: "16px",
+        content2: "16px",
+        content3: "14px",
+        button: "14px",
+        lgTitle: "144px",
+        lgHeading: "96px",
+        lgContent: "30px",
+        lgContent2: "30px",
+        lgContent3: "24px",
+        lgButton: "24px",
       },
     },
   },
