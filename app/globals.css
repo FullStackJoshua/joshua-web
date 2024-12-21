@@ -22,11 +22,11 @@ body {
 }
 
 .title {
-  @apply font-inter text-title tracking-tighter font-black;
+  @apply font-inter text-title tracking-tight font-black leading-none uppercase;
 }
 
 .heading {
-  @apply font-inter text-heading tracking-tight font-extrabold;
+  @apply font-inter text-heading tracking-tight font-extrabold uppercase;
 }
 
 .content {
@@ -34,11 +34,11 @@ body {
 }
 
 .content2 {
-  @apply font-satoshi text-content2 font-normal;
+  @apply font-satoshi text-content2 font-semibold;
 }
 
 .content3 {
-  @apply font-satoshi text-content3 font-normal;
+  @apply font-satoshi text-content3 font-medium tracking-normal leading-normal;
 }
 
 .button {
@@ -60,7 +60,6 @@ body {
     rgba(0, 0, 0, 0)
   );
 }
-/* Uncomment for debugging */
-/* * {
+Uncomment for debugging * {
   border: 1px solid red;
-} */
+}

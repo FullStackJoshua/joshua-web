@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/forms": "^0.5.9",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^11.14.4",
     "motion": "^11.11.17",
     "next": "14.2.11",

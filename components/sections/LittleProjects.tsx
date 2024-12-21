@@ -1,44 +1,64 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const projects = [
   {
-    year: "2023",
+    year: "Year 2023",
     number: "01",
-    image: "/path/to/project1.png",
     name: "Sandbox Project Name",
+    image: "/images/project1.jpg", // Replace with your image path
+    link: "/projects/sandbox-project",
   },
   {
-    year: "2023",
+    year: "Year 2024",
     number: "02",
-    image: "/path/to/project2.png",
-    name: "Sandbox Project Name",
+    name: "Someother Side Stuff",
+    image: "/images/project2.jpg", // Replace with your image path
+    link: "/projects/another-project",
   },
 ];
 
-const ProjectsSection = () => {
+const ProjectsUI = () => {
   return (
-    <section className="py-10 px-5">
-      <h2 className="title mb-8">MY PROJECTS -</h2>
-      <div className="space-y-12">
-        {projects.map((project, index) => (
-          <div key={index} className="space-y-4">
-            <div className="flex justify-between items-center text-content3 text-gray">
-              <span>Year {project.year}</span>
-              <span>{project.number}</span>
-            </div>
+    <section className="text-white px-7 py-20">
+      <div className="container mx-auto">
+        <h2 className="title text-4xl md:text-6xl font-bold mb-10">MY PROJECTS -</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {projects.map((project, index) => (
+            <Link href={project.link} key={index}>
+              <div className="relative group">
+                {/* Project Image */}
+                <div className="overflow-hidden rounded-md">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
 
-            <div className="rounded-lg overflow-hidden">
-              <img src={project.image} alt={project.name} className="w-full object-cover" />
-            </div>
+                {/* Overlay Info */}
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-gray-400">{project.year}</p>
+                  <p className="text-2xl font-bold">{project.name}</p>
+                </div>
 
-            <h3 className="text-lg font-medium">{project.name}</h3>
-          </div>
-        ))}
+                {/* Year and Project Number */}
+                <div className="absolute top-4 left-4">
+                  <p className="text-gray-400 text-sm">{project.year}</p>
+                  <p className="text-white text-2xl font-bold">{project.number}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default ProjectsSection;
+export default ProjectsUI;

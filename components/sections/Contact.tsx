@@ -1,97 +1,114 @@
 "use client";
+
 import { useState } from "react";
-import React from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  return (
+    <section id="contact" className="bg-noiseonwhite px-7 py-20">
+      <div className="container mx-auto">
+        <Header />
+        <ContactForm />
+      </div>
+    </section>
+  );
+};
+
+const Header = () => (
+  <h2 className="title md:text-lgTitle mb-16 md:mb-20">Have A Plan? Let&apos;s Connect -</h2>
+);
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
-      alert("All fields are required!");
-      return;
+    setError("");
+
+    try {
+      console.log("Sending email with:", {
+        from_name: formData.name,
+        to_name: "Joshua",
+        message: formData.message,
+      });
+
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.name,
+          to_name: "Joshua",
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      console.log("Email sent successfully:", result);
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Failed to send email:", err);
+      setError("Something went wrong. Please try again later.");
     }
-    console.log("Form Data:", formData);
-    alert("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <section className="bg-noiseonwhite px-5 py-16 md:px-28" id="contact">
-      <h1 className="title mb-10 md:text-lgTitle">
-        HAVE A PLAN? LET’S <br /> CONNECT -
-      </h1>
-
-      <div className="flex items-center justify-center">
-        <form onSubmit={handleSubmit} className="w-full max-w-md content3 text-gray ">
-          {/* Name Field */}
-          <div className="mb-6">
-            <label htmlFor="name" className="block mb-1 font-medium ">
-              Name
-            </label>
+    <>
+      {submitted ? (
+        <p className="text-green-600">Your message has been sent. Thank you!</p>
+      ) : (
+        <form onSubmit={handleSubmit} className="md:grid md:grid-cols-12 gap-6 max-w-6xl mx-auto">
+          <div className="relative border-b border-gray md:col-span-3">
             <input
               type="text"
-              id="name"
               name="name"
+              placeholder="Name"
+              className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
               value={formData.name}
               onChange={handleChange}
-              aria-label="Name"
-              className="w-full border-b border-gray-300 bg-transparent text-black focus:outline-none focus:border-black py-2 appearance-none"
+              required
             />
           </div>
 
-          {/* Email Field */}
-          <div className="mb-6">
-            <label htmlFor="email" className="block mb-1  font-medium ">
-              Email
-            </label>
+          <div className="relative border-b border-gray md:col-span-3">
             <input
               type="email"
-              id="email"
               name="email"
+              placeholder="Email"
+              className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
               value={formData.email}
               onChange={handleChange}
-              aria-label="Email"
-              className="w-full border-b-1 border-gray-300 bg-transparent text-black focus:outline-none focus:border-black py-2 appearance-none"
+              required
             />
           </div>
 
           {/* Message Field */}
-          <div className="mb-6">
-            <label htmlFor="message" className="block mb-1  font-medium ">
-              Message
-            </label>
+          <div className="relative border-b border-gray md:col-span-6">
             <textarea
-              id="message"
               name="message"
+              placeholder="Message"
+              className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
               value={formData.message}
               onChange={handleChange}
-              aria-label="Message"
-              rows={4}
-              className="w-full border-b border-gray-300 bg-transparent text-black focus:outline-none focus:border-black py-2 appearance-none resize-none"
-            ></textarea>
+              required
+            />
           </div>
 
-          {/* Submit Button */}
-          <div className="flex justify-end">
-            <button
-              type="submit"
-              className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 active:bg-gray-900 transition text-button"
-            >
-              Send
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="col-span-3 mt-6 py-3 px-6 bg-black text-white rounded-md hover:bg-gray"
+          >
+            Send Message
+          </button>
         </form>
-      </div>
-    </section>
+      )}
+      {error && <p className="text-red-600 mt-4">{error}</p>}
+    </>
   );
 };
 

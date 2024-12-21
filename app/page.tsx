@@ -1,7 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import LittleAboutMe from "@/components/sections/LittleAboutMe";
 import LittleProjects from "@/components/sections/LittleProjects";
-import Marquee from "@/components/ui/Marquee";
 
 export default function Home() {
   return (
@@ -10,7 +9,6 @@ export default function Home() {
         <Hero />
         <div className="bg-black bg-noiseonblack text-white">
           <LittleAboutMe />
-          <Marquee />
           <LittleProjects />
         </div>
       </div>

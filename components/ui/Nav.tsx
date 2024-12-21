@@ -1,40 +1,56 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { navItems } from "@/data";
 
 export const Nav = ({ className }: { className?: string }) => {
   const [isMounted, setIsMounted] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
 
   if (!isMounted) {
     return null;
   }
 
   return (
-    <div className={`relative pt-8 pb-8 px-7 bg-noiseonwhite ${className} md:px-24`}>
+    <div className={`relative pt-8 pb-8 px-7 bg-noiseonwhite ${className} md:px-24 md:pb-8`}>
       <nav className="flex items-center justify-between">
-        <Link href="/" className="button text-gray lg:text-lgButton">
+        <Link
+          href="/"
+          className="button text-gray lg:text-lgButton hover:text-black hover:underline transition"
+        >
           © 2024
         </Link>
 
         <div className="hidden lg:flex space-x-8">
-          {navItems.map((item) => (
-            <Link key={item.path} href={item.path} className="button lg:text-lgButton text-gray">
-              {item.title}
+          {navItems.map((item, index) => (
+            <Link
+              key={item.path}
+              href={item.path}
+              className="button lg:text-lgButton text-gray hover:text-black relative group transition"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <span className="relative">
+                {hoveredIndex === index ? (
+                  <>
+                    <span className="text-gray transition duration-300">{"< "}</span>
+                    {item.title}
+                    <span className="text-gray transition duration-300">{" >"}</span>
+                  </>
+                ) : (
+                  item.title
+                )}
+              </span>
             </Link>
           ))}
         </div>
 
-        <button className="md:hidden text-gray focus:outline-none" onClick={toggleMenu}>
+        <button className="md:hidden text-gray focus:outline-none">
           <svg
             className="w-6 h-6"
             fill="none"
@@ -51,25 +67,6 @@ export const Nav = ({ className }: { className?: string }) => {
           </svg>
         </button>
       </nav>
-
-      {/* Mobile Menu - Overlapping */}
-      {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white bg-noiseonwhite shadow-lg z-50">
-          <ul className="space-y-4 py-4 px-6">
-            {navItems.map((item) => (
-              <li key={item.path}>
-                <Link
-                  href={item.path}
-                  className="block text-gray py-2 px-4 hover:bg-gray-200"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/ui/Footer";
 import Contact from "@/components/sections/Contact";
 import Nav from "@/components/ui/Nav";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -18,9 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
+      <Head>
+        <title>Joshua Lim - Full-Stack Developer</title>
+        <meta
+          name="description"
+          content="Experienced Full-Stack Web Developer proficient in frontend, backend, and database management."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <body className="overflow-x-hidden">
         <Nav />
         {children}

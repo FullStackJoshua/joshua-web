@@ -34,7 +34,7 @@ const config: Config = {
         content2: "16px",
         content3: "14px",
         button: "14px",
-        lgTitle: "144px",
+        lgTitle: "128px",
         lgHeading: "96px",
         lgContent: "30px",
         lgContent2: "30px",
