@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface MarqueeItemProps {
   images: { src: string; text: string }[];
@@ -18,7 +19,7 @@ const MarqueeItem: React.FC<MarqueeItemProps> = ({ images, from, to }) => {
       >
         {images.map((item, index) => (
           <div key={index} className="flex items-center space-x-2 pr-10 h-20 md:h-40 w-fit">
-            <img className="h-10 w-10 md:h-20 md:w-20" src={item.src} alt={`Icon ${index + 1}`} />
+            <Image className="h-10 w-10 md:h-20 md:w-20" src={item.src} alt={`Icon ${index + 1}`} />
             <span className="text-sm md:text-lg text-white">{item.text}</span>
           </div>
         ))}
@@ -32,7 +33,7 @@ const MarqueeItem: React.FC<MarqueeItemProps> = ({ images, from, to }) => {
       >
         {images.map((item, index) => (
           <div key={index} className="flex items-center space-x-2 pr-10 h-20 md:h-40 w-fit">
-            <img className="h-10 w-10 md:h-20 md:w-20" src={item.src} alt={`Icon ${index + 1}`} />
+            <Image className="h-10 w-10 md:h-20 md:w-20" src={item.src} alt={`Icon ${index + 1}`} />
 
             <span className="text-sm md:text-lg text-white">{item.text}</span>
           </div>

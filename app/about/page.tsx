@@ -87,7 +87,7 @@ const Interest = ({
   <div className="flex flex-col space-y-2">
     {/* Icon and Title */}
     <div className="flex items-center space-x-2">
-      <img src={icon} alt={alt} className="w-4 h-4" />
+      <Image src={icon} alt={alt} className="w-4 h-4" />
       <h3 className="content2 text-gray md:text-lgContent2">{title}</h3>
     </div>
     {/* Description */}
