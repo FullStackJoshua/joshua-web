@@ -9,14 +9,14 @@ const projects = [
     year: "Year 2023",
     number: "01",
     name: "Sandbox Project Name",
-    image: "/images/project1.jpg", // Replace with your image path
+    image: "/projects/project1.svg",
     link: "/projects/sandbox-project",
   },
   {
     year: "Year 2024",
     number: "02",
     name: "Someother Side Stuff",
-    image: "/images/project2.jpg", // Replace with your image path
+    image: "/projects/project1.svg",
     link: "/projects/another-project",
   },
 ];
@@ -35,8 +35,8 @@ const ProjectsUI = () => {
                   <Image
                     src={project.image}
                     alt={project.name}
-                    width={600}
-                    height={400}
+                    width={100}
+                    height={25}
                     className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
