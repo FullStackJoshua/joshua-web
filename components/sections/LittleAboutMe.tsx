@@ -43,9 +43,9 @@ const Paragraph = () => (
     viewport={{ once: true, margin: "-100px" }}
     transition={{ duration: 1, ease: "easeOut" }}
   >
-    I&#39;m a passionate and innovative software developer, committed to bringing your digital
-    visions to life. Along my developer journey, I&#39;ve gained expertise in front-end and back-end
-    development, database management, and project leadership.
+    I am a passionate and innovative software developer dedicated to bringing digital visions to
+    life. Throughout my journey, I have honed my expertise in front-end and back-end development,
+    database management, and project leadership.
   </motion.p>
 );
 
@@ -58,8 +58,8 @@ const Paragraph2 = () => (
     viewport={{ once: true, margin: "-100px" }}
     transition={{ duration: 2, ease: "easeOut" }}
   >
-    I am enthusiastic about utilizing the newest technologies to provide creative solutions and am
-    always excited to network with professionals who share the same mindset.
+    I am enthusiastic about leveraging cutting-edge technologies to deliver creative solutions and
+    always eager to connect with like-minded professionals who share my passion for innovation.
   </motion.p>
 );
 

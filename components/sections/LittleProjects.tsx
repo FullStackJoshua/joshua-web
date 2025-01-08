@@ -6,17 +6,15 @@ import Image from "next/image";
 
 const projects = [
   {
-    year: "Year 2023",
     number: "01",
-    name: "Sandbox Project Name",
-    image: "/projects/project1.svg",
-    link: "/projects/sandbox-project",
+    name: "Ridge Banking App",
+    image: "/projects/project1.1.svg",
+    link: "/projects/ridge-project",
   },
   {
-    year: "Year 2024",
     number: "02",
     name: "Someother Side Stuff",
-    image: "/projects/project1.svg",
+    image: "/projects/project1.1.svg",
     link: "/projects/another-project",
   },
 ];
@@ -43,13 +41,11 @@ const ProjectsUI = () => {
 
                 {/* Overlay Info */}
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-gray-400">{project.year}</p>
                   <p className="text-2xl font-bold">{project.name}</p>
                 </div>
 
                 {/* Year and Project Number */}
                 <div className="absolute top-4 left-4">
-                  <p className="text-gray-400 text-sm">{project.year}</p>
                   <p className="text-white text-2xl font-bold">{project.number}</p>
                 </div>
               </div>
