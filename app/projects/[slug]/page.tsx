@@ -8,7 +8,6 @@ const ProjectPage = ({ params }: { params: { slug: string } }) => {
   const router = useRouter();
   const { slug } = params;
 
-  // Find the project based on the slug
   const project = projects.find((project) => project.slug === slug);
 
   if (!project) {
@@ -20,45 +19,49 @@ const ProjectPage = ({ params }: { params: { slug: string } }) => {
       <div className="container mx-auto">
         {/* Project Header */}
         <div className="mb-10">
-          <h1 className="title text-4xl md:text-6xl font-bold">{project.title}</h1>
-          <p className="content text-gray text-sm">(by {project.author})</p>
+          <h1 className="heading md:text-lgHeading">{project.title}</h1>
+          <p className="content md:text-lgContent text-gray text-sm">(by {project.author})</p>
         </div>
 
         {/* Main Image */}
-        <div className="mb-12">
-          <Image
-            src={project.mainImage}
-            alt={project.title}
-            width={1200}
-            height={800}
-            className="w-full rounded-md"
-          />
-        </div>
+        <Image
+          src={project.mainImage}
+          alt={project.title}
+          width={1920}
+          height={1080}
+          quality={90}
+          className="w-full rounded-md pb-8"
+        />
 
         {/* About The Project */}
-        <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mb-16 grid grid-cols-1 md:grid-cols-2 md:gap-8">
           <div>
-            <h2 className="title text-2xl font-bold mb-4">About The Project</h2>
-            <p className="content text-gray text-lg leading-relaxed">{project.description}</p>
+            <h2 className="heading md:text-lgHeading font-bold mb-4">About The Project</h2>
           </div>
+          <div>
+            <p className="content md:text-lgContent text-gray text-lg leading-relaxed my-2">
+              {project.description}h
+            </p>
+          </div>
+
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <p className="font-bold text-sm">Project Role</p>
+              <p className="font-bold content md:text-lgContent">Project Role</p>
               <p className="text-gray">{project.role}</p>
             </div>
             <div>
-              <p className="font-bold text-sm">Duration</p>
+              <p className="font-bold content md:text-lgContent">Duration</p>
               <p className="text-gray">{project.duration}</p>
             </div>
             <div>
-              <p className="font-bold text-sm">Category</p>
+              <p className="font-bold content md:text-lgContent">Category</p>
               <p className="text-gray">{project.category}</p>
             </div>
           </div>
         </div>
 
         {/* Image Gallery */}
-        <div className="mb-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mb-16 grid grid-cols-2 md:grid-cols-2 gap-4">
           {project.gallery.map((image, index) => (
             <Image
               key={index}
@@ -66,28 +69,30 @@ const ProjectPage = ({ params }: { params: { slug: string } }) => {
               alt={`${project.title} screenshot ${index + 1}`}
               width={400}
               height={300}
-              className="rounded-md"
+              className="rounded-md w-full"
             />
           ))}
         </div>
 
         {/* Technologies Used */}
         <div className="mb-16">
-          <h2 className="title text-2xl font-bold mb-4">Technologies Used</h2>
-          <p className="content text-gray text-lg leading-relaxed">{project.technologies}</p>
+          <h2 className="heading md:text-lgHeading mb-4">Technologies Used</h2>
+          <p className="content md:text-lgContent text-gray leading-relaxed">
+            {project.technologies}
+          </p>
         </div>
 
         {/* Navigation */}
         <div className="flex justify-between items-center">
           <button
             onClick={() => router.push(project.previousSlug || "/projects")}
-            className="text-gray hover:text-white text-lg font-bold"
+            className="text-gray hover:text-white heading md:text-lgHeading font-bold"
           >
             &lt; LAST
           </button>
           <button
             onClick={() => router.push(project.nextSlug || "/projects")}
-            className="text-gray hover:text-white text-lg font-bold"
+            className="text-gray hover:text-white heading md:text-lgHeading font-bold"
           >
             NEXT &gt;
           </button>
