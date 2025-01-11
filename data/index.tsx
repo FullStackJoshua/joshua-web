@@ -2,7 +2,7 @@ export const navItems = [
   { title: "About", path: "/about" },
   { title: "Projects", path: "/projects" },
   { title: "Contact", path: "/#contact" },
-  { title: "Blog", path: "/blog" },
+  { title: "Blog", path: "https://techpediablogs.com/" },
 ];
 
 export const footerItems = [

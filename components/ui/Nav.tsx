@@ -3,18 +3,30 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { navItems } from "@/data";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Nav = ({ className }: { className?: string }) => {
   const [isMounted, setIsMounted] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
   if (!isMounted) {
     return null;
   }
+
+  const mobileMenuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+  };
 
   return (
     <div className={`relative pt-8 pb-8 px-7 bg-noiseonwhite ${className} md:px-24 md:pb-8`}>
@@ -31,6 +43,8 @@ export const Nav = ({ className }: { className?: string }) => {
             <Link
               key={item.path}
               href={item.path}
+              target={item.title === "Blog" ? "_blank" : undefined}
+              rel={item.title === "Blog" ? "noopener noreferrer" : undefined}
               className="button lg:text-lgButton text-gray hover:text-black relative group transition"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -50,7 +64,7 @@ export const Nav = ({ className }: { className?: string }) => {
           ))}
         </div>
 
-        <button className="md:hidden text-gray focus:outline-none">
+        <button className="lg:hidden text-gray focus:outline-none" onClick={toggleMenu}>
           <svg
             className="w-6 h-6"
             fill="none"
@@ -67,6 +81,35 @@ export const Nav = ({ className }: { className?: string }) => {
           </svg>
         </button>
       </nav>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={mobileMenuVariants}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="lg:hidden absolute top-full left-0 w-full bg-white shadow-md z-50"
+          >
+            <ul className="flex flex-col items-start space-y-4 py-4 px-6">
+              {navItems.map((item) => (
+                <li key={item.path}>
+                  <Link
+                    href={item.path}
+                    target={item.title === "Blog" ? "_blank" : undefined}
+                    rel={item.title === "Blog" ? "noopener noreferrer" : undefined}
+                    className="button text-gray lg:text-lgButton hover:text-black transition"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

@@ -27,10 +27,9 @@ const ProjectPage = ({ params }: { params: { slug: string } }) => {
         <Image
           src={project.mainImage}
           alt={project.title}
-          width={1920}
-          height={1080}
-          quality={90}
-          className="w-full rounded-md pb-8"
+          width={1600}
+          height={1200}
+          className="rounded-md pb-8"
         />
 
         {/* About The Project */}

@@ -8,13 +8,13 @@ const projects = [
   {
     number: "01",
     name: "Ridge Banking App",
-    image: "/projects/project1.1.svg",
+    image: "/projects/project1.1.png",
     link: "/projects/ridge-project",
   },
   {
     number: "02",
     name: "TechPedia Blogs",
-    image: "/projects/project2.1.svg",
+    image: "/projects/project2.1.png",
     link: "/projects/blog-project",
   },
 ];
@@ -32,9 +32,9 @@ const ProjectsUI = () => {
                   <Image
                     src={project.image}
                     alt={project.name}
-                    width={100}
-                    height={25}
-                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                    width={1920}
+                    height={1080}
+                    className="w-full h-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
 

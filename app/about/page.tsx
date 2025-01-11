@@ -2,42 +2,73 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion"; // Import Framer Motion
 import { interests } from "@/data";
 
 const AboutPage = () => {
   return (
-    <section className="bg-noiseonwhite px-7 md:pb-20">
+    <motion.section
+      className="bg-noiseonwhite px-7 md:pb-20"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       <div className="container mx-auto">
-        {/* Two-column layout for header, text, and portrait */}
         <div className="grid grid-cols-1 md:grid-cols-12 items-center">
-          {/* Left column: Header and Paragraph */}
-          <div className="md:col-span-8 pb-5 md:pb-40">
+          <motion.div
+            className="md:col-span-8 pb-5 md:pb-40"
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <Header />
             <Paragraph />
-          </div>
-          {/* Right column: Portrait */}
-          <div className="md:col-span-4 pb-10 flex justify-center md:justify-end ">
+          </motion.div>
+
+          <motion.div
+            className="md:col-span-4 pb-10 flex justify-center md:justify-end"
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
             <Portrait />
-          </div>
+          </motion.div>
         </div>
 
-        {/* Section for interests */}
         <div>
-          <Header2 />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          >
+            <Header2 />
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
             {interests.map((interest, index) => (
-              <Interest
+              <motion.div
                 key={index}
-                icon={interest.icon}
-                alt={interest.alt}
-                title={interest.title}
-                description={interest.description}
-              />
+                className="flex flex-col space-y-2"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: 0.6 + index * 0.1,
+                }}
+              >
+                <Interest
+                  icon={interest.icon}
+                  alt={interest.alt}
+                  title={interest.title}
+                  description={interest.description}
+                />
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
@@ -84,14 +115,13 @@ const Interest = ({
   title: string;
   description: string;
 }) => (
-  <div className="flex flex-col space-y-2">
-    {/* Icon and Title */}
+  <div>
     <div className="flex items-center space-x-2">
       <Image src={icon} alt={alt} width={16} height={16} className="md:w-8 md:h-8" />
       <h3 className="content2 text-gray md:text-lgContent2">{title}</h3>
     </div>
-    {/* Description */}
-    <p className="content3  md:text-lgContent3">{description}</p>
+
+    <p className="content3 md:text-lgContent3">{description}</p>
   </div>
 );
 
