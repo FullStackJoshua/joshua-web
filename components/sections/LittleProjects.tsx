@@ -13,9 +13,9 @@ const projects = [
   },
   {
     number: "02",
-    name: "Someother Side Stuff",
-    image: "/projects/project1.1.svg",
-    link: "/projects/another-project",
+    name: "TechPedia Blogs",
+    image: "/projects/project2.1.svg",
+    link: "/projects/blog-project",
   },
 ];
 
@@ -28,7 +28,6 @@ const ProjectsUI = () => {
           {projects.map((project, index) => (
             <Link href={project.link} key={index}>
               <div className="relative group">
-                {/* Project Image */}
                 <div className="overflow-hidden rounded-md">
                   <Image
                     src={project.image}
@@ -39,12 +38,10 @@ const ProjectsUI = () => {
                   />
                 </div>
 
-                {/* Overlay Info */}
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="text-2xl font-bold">{project.name}</p>
                 </div>
 
-                {/* Year and Project Number */}
                 <div className="absolute top-4 left-4">
                   <p className="text-white text-2xl font-bold">{project.number}</p>
                 </div>

@@ -40,7 +40,7 @@ const ProjectPage = ({ params }: { params: { slug: string } }) => {
           </div>
           <div>
             <p className="content md:text-lgContent text-gray text-lg leading-relaxed my-2">
-              {project.description}h
+              {project.description}
             </p>
           </div>
 
