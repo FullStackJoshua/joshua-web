@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { PluginAPI } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -44,7 +44,8 @@ const config: Config = {
     },
   },
   plugins: [
-    function ({ addUtilities }) {
+    function (api: PluginAPI) {
+      const { addUtilities } = api;
       addUtilities({
         ".text-balance": {
           textWrap: "balance",
