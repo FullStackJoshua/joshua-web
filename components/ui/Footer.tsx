@@ -44,7 +44,7 @@ function Footer({ className }: { className?: string }) {
         className="mt-6 md:mt-0 md:text-right text-gray hover:text-black hover:underline transition"
         aria-label="Scroll to top"
       >
-        © 2024. Joshua Lim
+        © 2025. Joshua Lim
       </button>
     </footer>
   );

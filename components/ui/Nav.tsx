@@ -35,7 +35,7 @@ export const Nav = ({ className }: { className?: string }) => {
           href="/"
           className="button text-gray lg:text-lgButton hover:text-black hover:underline transition"
         >
-          © 2024
+          © 2025
         </Link>
 
         <div className="hidden lg:flex space-x-8">
