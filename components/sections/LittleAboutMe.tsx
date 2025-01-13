@@ -7,7 +7,7 @@ import Marquee from "@/components/ui/Marquee";
 
 const LittleAboutMe = () => {
   return (
-    <section id="about-section" className="bg-noiseonwhite px-7 py-12 md:pt-40">
+    <section id="about-section" className="px-7 py-12 md:pt-40">
       <div className="container pb-12 mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 md:pb-36 md:gap-0 items-start">
         <div>
           <Header />

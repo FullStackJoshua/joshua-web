@@ -24,7 +24,7 @@ const ProjectsPage = () => {
 
   return (
     <motion.section
-      className="bg-black text-white px-5 py-10 md:px-20 md:py-20"
+      className=" bg-black bg-noiseonblack text-white px-5 py-10 md:px-20 md:py-20"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

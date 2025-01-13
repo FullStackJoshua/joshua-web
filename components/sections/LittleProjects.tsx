@@ -23,7 +23,7 @@ const ProjectsUI = () => {
   return (
     <section className="text-white px-7 py-20">
       <div className="container mx-auto">
-        <h2 className="title text-4xl md:text-6xl font-bold mb-10">MY PROJECTS -</h2>
+        <h2 className="title md:text-lgHeading font-bold mb-10">MY PROJECTS -</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, index) => (
             <Link href={project.link} key={index}>
@@ -39,11 +39,11 @@ const ProjectsUI = () => {
                 </div>
 
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-2xl font-bold">{project.name}</p>
+                  <p className="text-heading font-bold">{project.name}</p>
                 </div>
 
                 <div className="absolute top-4 left-4">
-                  <p className="text-white text-2xl font-bold">{project.number}</p>
+                  <p className="text-white text-heading font-bold">{project.number}</p>
                 </div>
               </div>
             </Link>
