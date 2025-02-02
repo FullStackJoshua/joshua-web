@@ -71,7 +71,6 @@ const ProjectPage = ({ params }: { params: { slug: string } }) => {
             ))}
           </div>
 
-          {/* Technologies Used */}
           <div className="mb-16">
             <h2 className="heading md:text-lgHeading mb-4">Technologies Used</h2>
             <p className="content md:text-lgContent text-gray leading-relaxed">
@@ -79,7 +78,6 @@ const ProjectPage = ({ params }: { params: { slug: string } }) => {
             </p>
           </div>
 
-          {/* Navigation */}
           <div className="flex justify-between items-center">
             <button
               onClick={() => router.push(project.previousSlug || "/projects")}

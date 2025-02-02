@@ -33,10 +33,8 @@ const ProjectsPage = () => {
         variants={containerVariants}
       >
         <div className="container mx-auto">
-          {/* Page Header */}
           <SplitText text="Projects" className="title md:text-lgTitle mb-10" />
 
-          {/* Projects Grid */}
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
             variants={containerVariants}

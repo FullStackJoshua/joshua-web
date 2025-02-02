@@ -7,6 +7,11 @@ import { navItems } from "@/data";
 import { motion, AnimatePresence } from "framer-motion";
 import NoiseBackground from "../NoiseBackground";
 
+interface NavItemType {
+  title: string;
+  path: string;
+}
+
 export const Nav = ({ className }: { className?: string }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,17 +31,14 @@ export const Nav = ({ className }: { className?: string }) => {
     exit: { opacity: 0, y: -20 },
   };
 
-  const NavItem = ({
-    item,
-    index,
-    hoveredIndex,
-    setHoveredIndex,
-  }: {
-    item: any;
+  type NavItemProps = {
+    item: NavItemType;
     index: number;
     hoveredIndex: number | null;
     setHoveredIndex: (index: number | null) => void;
-  }) => {
+  };
+
+  const NavItem = ({ item, index, hoveredIndex, setHoveredIndex }: NavItemProps) => {
     const hoverTextColor = isProjectsPage ? "text-white" : "text-black";
 
     return (
@@ -71,7 +73,6 @@ export const Nav = ({ className }: { className?: string }) => {
       <div className={`w-full bg-transparent ${className}`}>
         <div className="relative pt-8 pb-8 px-7 md:px-24 md:pb-8">
           <nav className="flex items-center justify-between">
-            {/* Conditionally change hover text color for the © 2025 link */}
             <Link
               href="/"
               className={`button text-gray lg:text-lgButton transition hover:underline ${
@@ -82,7 +83,7 @@ export const Nav = ({ className }: { className?: string }) => {
             </Link>
 
             <div className="hidden lg:flex space-x-8">
-              {navItems.map((item, index) => (
+              {navItems.map((item: NavItemType, index: number) => (
                 <NavItem
                   key={item.path}
                   item={item}
@@ -156,7 +157,7 @@ export const Nav = ({ className }: { className?: string }) => {
                     </svg>
                   </button>
                   <ul className="flex flex-col items-start space-y-4 py-4 px-6">
-                    {navItems.map((item) => (
+                    {navItems.map((item: NavItemType) => (
                       <li key={item.path}>
                         <Link
                           href={item.path}

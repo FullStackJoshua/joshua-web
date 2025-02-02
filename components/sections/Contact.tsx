@@ -9,7 +9,7 @@ import SplitText from "@/TextAnimations/SplitText";
 const Contact = () => {
   return (
     <NoiseBackground mode="light" intensity={0.1}>
-      <section id="contact" className="px-5 py-20">
+      <section id="contact" className="px-2 py-10 md:py-20">
         <div className="container mx-auto">
           <Header />
           <ContactForm />
@@ -20,7 +20,7 @@ const Contact = () => {
 };
 
 const Header = () => (
-  <div className="heading md:text-lgHeading mb-16 md:mb-20">
+  <div className="heading md:text-lgHeading mb-10 md:mb-20">
     <SplitText text="Great things can happen" />
     <SplitText text={' with a simple "Hello!"'} />
   </div>
