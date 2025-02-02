@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import SplitText from "@/TextAnimations/SplitText";
 
 export default function Hero() {
   const handleScrollToAbout = () => {
@@ -12,7 +13,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="bg-noiseonwhite px-7 pb-10">
+    <section id="hero" className="px-7 pb-10">
       <div className="container mx-auto">
         <IntroHeader />
         <div className="max-w-6xl mx-auto">
@@ -31,11 +32,9 @@ export default function Hero() {
 }
 
 const IntroHeader = () => (
-  <div className="lg:translate-y-1/4">
-    <h1 className="title sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl  mx-auto">Hi There -</h1>
-    <h1 className="title sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-right mx-auto">
-      I&apos;m Joshua Lim
-    </h1>
+  <div className="lg:translate-y-1/4 title sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+    <SplitText text="HI THERE -" />
+    <SplitText text="I'M JOSHUA LIM" className="justify-end" />
   </div>
 );
 

@@ -4,11 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Marquee from "@/components/ui/Marquee";
+import SplitText from "@/TextAnimations/SplitText";
 
 const LittleAboutMe = () => {
   return (
-    <section id="about-section" className="px-7 py-12 md:pt-40">
-      <div className="container pb-12 mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 md:pb-36 md:gap-0 items-start">
+    <section id="about-section" className="px-7 py-12 md:pt-40 text-white">
+      <div className="container pb-12 mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 md:pb-36 md:gap-0 items-start ">
         <div>
           <Header />
           <Paragraph />
@@ -24,9 +25,10 @@ const LittleAboutMe = () => {
 };
 
 const Header = () => (
-  <h2 className="heading mb-5 md:text-lgHeading md:mb-12 md:whitespace-nowrap">
-    A LITTLE ABOUT ME -
-  </h2>
+  <SplitText
+    text="A LITTLE ABOUT ME -"
+    className="heading mb-5 md:text-lgHeading md:mb-12 md:whitespace-nowrap"
+  />
 );
 
 const fadeInVariants = {

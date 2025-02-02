@@ -4,6 +4,8 @@ import { projects } from "@/data/projects";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import NoiseBackground from "@/components/NoiseBackground";
+import SplitText from "@/TextAnimations/SplitText";
 
 const ProjectsPage = () => {
   const containerVariants = {
@@ -23,45 +25,43 @@ const ProjectsPage = () => {
   };
 
   return (
-    <motion.section
-      className=" bg-black bg-noiseonblack text-white px-5 py-10 md:px-20 md:py-20"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      <div className="container mx-auto">
-        {/* Page Header */}
-        <motion.h1
-          className="heading md:text-lgHeading mb-10"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          Projects
-        </motion.h1>
+    <NoiseBackground mode="dark" intensity={0.1}>
+      <motion.section
+        className="text-white px-5 pb-10 md:px-20 md:pb-20"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <div className="container mx-auto">
+          {/* Page Header */}
+          <SplitText text="Projects" className="title md:text-lgTitle mb-10" />
 
-        {/* Projects Grid */}
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6" variants={containerVariants}>
-          {projects.map((project) => (
-            <motion.div key={project.slug} className="cursor-pointer" variants={itemVariants}>
-              <Link href={`/projects/${project.slug}`}>
-                <Image
-                  src={project.mainImage}
-                  alt={project.title}
-                  width={1920}
-                  height={1080}
-                  className="w-full rounded-md hover:scale-105 transition-transform duration-300"
-                />
-                <h2 className="content md:text-lgContent mt-4">{project.title}</h2>
-                <p className="button md:text-lgButton text-gray mt-2">
-                  {project.description.slice(0, 100)}...
-                </p>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </motion.section>
+          {/* Projects Grid */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            variants={containerVariants}
+          >
+            {projects.map((project) => (
+              <motion.div key={project.slug} className="cursor-pointer" variants={itemVariants}>
+                <Link href={`/projects/${project.slug}`}>
+                  <Image
+                    src={project.mainImage}
+                    alt={project.title}
+                    width={1920}
+                    height={1080}
+                    className="w-full rounded-md hover:scale-105 transition-transform duration-300"
+                  />
+                  <h2 className="content md:text-lgContent mt-4">{project.title}</h2>
+                  <p className="button md:text-lgButton text-gray mt-2">
+                    {project.description.slice(0, 100)}...
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+    </NoiseBackground>
   );
 };
 

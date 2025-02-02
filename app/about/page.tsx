@@ -2,80 +2,96 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import { interests } from "@/data";
+import NoiseBackground from "@/components/NoiseBackground";
+import SplitText from "@/TextAnimations/SplitText";
 
 const AboutPage = () => {
   return (
-    <motion.section
-      className="bg-noiseonwhite px-7 md:pb-20"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 items-center">
-          <motion.div
-            className="md:col-span-8 pb-5 md:pb-40"
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <Header />
-            <Paragraph />
-          </motion.div>
-
-          <motion.div
-            className="md:col-span-4 pb-10 flex justify-center md:justify-end"
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          >
-            <Portrait />
-          </motion.div>
-        </div>
-
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          >
-            <Header2 />
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
-            {interests.map((interest, index) => (
+    <NoiseBackground mode="light" intensity={0.1}>
+      <div className="relative min-h-screen overflow-hidden">
+        <motion.section
+          className="px-5 md:pb-20 relative z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-12 items-center">
               <motion.div
-                key={index}
-                className="flex flex-col space-y-2"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  ease: "easeOut",
-                  delay: 0.6 + index * 0.1,
-                }}
+                className="md:col-span-8 pb-5 md:pb-40"
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <Interest
-                  icon={interest.icon}
-                  alt={interest.alt}
-                  title={interest.title}
-                  description={interest.description}
-                />
+                <Header />
+                <Paragraph />
               </motion.div>
-            ))}
+
+              <motion.div
+                className="md:col-span-4 pb-10 flex justify-center md:justify-end"
+                initial={{ x: 50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              >
+                <Portrait />
+              </motion.div>
+            </div>
+
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+              >
+                <Header2 />
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
+                {interests.map((interest, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex flex-col space-y-2"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.6,
+                      ease: "easeOut",
+                      delay: 0.6 + index * 0.1,
+                    }}
+                  >
+                    <Interest
+                      icon={interest.icon}
+                      alt={interest.alt}
+                      title={interest.title}
+                      description={interest.description}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </motion.section>
       </div>
-    </motion.section>
+    </NoiseBackground>
   );
 };
 
 const Header = () => (
   <header className="title md:text-lgTitle pb-5">
-    PART-TIME <br />I SIP COFFEE, <br />
-    <span className="block pl-12 md:pl-32">FULL-TIME I BREW IDEAS -</span>
+    <div className="block">
+      <SplitText text="PART-TIME" />
+    </div>
+    <div className="block">
+      <SplitText text="I SIP COFFEE," />
+    </div>
+    <div className="block pl-12 md:pl-32">
+      <SplitText text="FULL-TIME I" />
+    </div>
+    <div className="block pl-12 md:pl-32">
+      <SplitText text="BREW IDEAS -" />
+    </div>
   </header>
 );
 
@@ -101,7 +117,7 @@ const Portrait = () => (
 );
 
 const Header2 = () => (
-  <h2 className="heading md:text-lgHeading md:pb-10">- BUT THERE IS MORE TO ME</h2>
+  <SplitText text="-But There Is More To Me" className="heading md:text-lgHeading md:pb-10" />
 );
 
 const Interest = ({

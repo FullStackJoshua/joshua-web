@@ -15,15 +15,15 @@
 }
 
 body {
-  @apply text-foreground bg-background overflow-auto font-sans;
+  @apply text-foreground overflow-auto font-sans;
 }
 
 .title {
-  @apply font-inter text-title tracking-tight font-black leading-none uppercase;
+  @apply font-inter text-title tracking-tight font-black leading-none;
 }
 
 .heading {
-  @apply font-inter text-heading tracking-tight font-extrabold uppercase;
+  @apply font-inter text-heading tracking-tight font-extrabold;
 }
 
 .content {
@@ -57,6 +57,6 @@ body {
     rgba(0, 0, 0, 0)
   );
 }
-Uncomment for debugging * {
+/* * {
   border: 1px solid red;
-}
+} */

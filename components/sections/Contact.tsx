@@ -2,22 +2,29 @@
 
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { motion, AnimatePresence } from "framer-motion";
+import NoiseBackground from "../NoiseBackground";
+import SplitText from "@/TextAnimations/SplitText";
 
 const Contact = () => {
   return (
-    <section id="contact" className="bg-noiseonwhite px-7 py-20">
-      <div className="container mx-auto">
-        <Header />
-        <ContactForm />
-      </div>
-    </section>
+    <NoiseBackground mode="light" intensity={0.1}>
+      <section id="contact" className="px-5 py-20">
+        <div className="container mx-auto">
+          <Header />
+          <ContactForm />
+        </div>
+      </section>
+    </NoiseBackground>
   );
 };
 
 const Header = () => (
-  <h2 className="title md:text-lgTitle mb-16 md:mb-20">Have A Plan? Let&apos;s Connect -</h2>
+  <div className="heading md:text-lgHeading mb-16 md:mb-20">
+    <SplitText text="Great things can happen" />
+    <SplitText text={' with a simple "Hello!"'} />
+  </div>
 );
-
 const ContactForm = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -34,6 +41,7 @@ const ContactForm = () => {
     try {
       console.log("Sending email with:", {
         from_name: formData.name,
+        from_email: formData.email,
         to_name: "Joshua",
         message: formData.message,
       });
@@ -43,6 +51,7 @@ const ContactForm = () => {
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
           from_name: formData.name,
+          from_email: formData.email,
           to_name: "Joshua",
           message: formData.message,
         },
@@ -59,55 +68,84 @@ const ContactForm = () => {
 
   return (
     <>
-      {submitted ? (
-        <p className="text-green-600">Your message has been sent. Thank you!</p>
-      ) : (
-        <form onSubmit={handleSubmit} className="md:grid md:grid-cols-12 gap-6 max-w-6xl mx-auto">
-          <div className="relative border-b border-gray md:col-span-3">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="relative border-b border-gray md:col-span-3">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          {/* Message Field */}
-          <div className="relative border-b border-gray md:col-span-6">
-            <textarea
-              name="message"
-              placeholder="Message"
-              className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="col-span-3 mt-6 py-3 px-6 bg-black text-white rounded-md hover:bg-gray"
+      <AnimatePresence mode="wait">
+        {submitted ? (
+          <motion.p
+            key="success"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="text-green-600 text-center text-xl"
           >
-            Send Message
-          </button>
-        </form>
-      )}
-      {error && <p className="text-red-600 mt-4">{error}</p>}
+            Your message has been sent. Thank you!
+          </motion.p>
+        ) : (
+          <motion.form
+            key="form"
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:grid md:grid-cols-12 gap-6 max-w-6xl mx-auto"
+          >
+            <div className="relative border-b border-gray md:col-span-3">
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="relative border-b border-gray md:col-span-3">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="relative border-b border-gray md:col-span-6">
+              <textarea
+                name="message"
+                placeholder="Message"
+                className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="col-span-3 mt-6 py-3 px-6 bg-black text-white rounded-md hover:bg-gray"
+            >
+              Send Message
+            </button>
+          </motion.form>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {error && (
+          <motion.p
+            key="error"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            className="text-red-600 mt-4 text-center"
+          >
+            {error}
+          </motion.p>
+        )}
+      </AnimatePresence>
     </>
   );
 };

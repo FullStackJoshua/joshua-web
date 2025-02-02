@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import SplitText from "@/TextAnimations/SplitText";
 
 const projects = [
   {
@@ -23,7 +24,7 @@ const ProjectsUI = () => {
   return (
     <section className="text-white px-7 py-20">
       <div className="container mx-auto">
-        <h2 className="title md:text-lgHeading font-bold mb-10">MY PROJECTS -</h2>
+        <SplitText text="MY PROJECTS" className="title md:text-lgHeading font-bold mb-10" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, index) => (
             <Link href={project.link} key={index}>
@@ -38,7 +39,7 @@ const ProjectsUI = () => {
                   />
                 </div>
 
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-opacity-50 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="text-heading font-bold">{project.name}</p>
                 </div>
 

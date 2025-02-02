@@ -5,6 +5,7 @@ import Footer from "@/components/ui/Footer";
 import Contact from "@/components/sections/Contact";
 import Nav from "@/components/ui/Nav";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Joshua Portfolio",
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className="overflow-x-hidden">
         <Nav />
         {children}
+        <Analytics />
         <Contact />
         <Footer />
       </body>
