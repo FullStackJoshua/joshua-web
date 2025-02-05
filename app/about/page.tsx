@@ -80,28 +80,28 @@ const AboutPage = () => {
 
 const Header = () => (
   <header className="title md:text-lgTitle pb-5 md:pb-20">
-    <div className="block">
+    <h1 className="block">
       <SplitText text="PART-TIME" />
-    </div>
-    <div className="block">
+    </h1>
+    <h1 className="block">
       <SplitText text="I SIP COFFEE," />
-    </div>
-    <div className="block pl-12 md:pl-32">
+    </h1>
+    <h1 className="block pl-12 md:pl-32">
       <SplitText text="FULL-TIME I" />
-    </div>
-    <div className="block pl-12 md:pl-32">
+    </h1>
+    <h1 className="block pl-12 md:pl-32">
       <SplitText text="BREW IDEAS -" />
-    </div>
+    </h1>
   </header>
 );
 
 const Paragraph = () => (
   <p className="content md:text-lgContent text-gray italic">
-    &quot;Growing up in New York City, I’ve always seen software development as a reflection of the
-    city—fast-paced, constantly evolving, and full of possibilities. Just like New York thrives on
-    innovation, coding is about adapting, solving problems, and building things that last. Every
-    challenge is a chance to grow, every setback a lesson, and every success a new milestone. I’m
-    excited to keep learning, creating, and shaping the digital world—one line of code at a
+    &quot;Growing up in New York City, I&apos;ve always seen software development as a reflection of
+    the city—fast-paced, constantly evolving, and full of possibilities. Just like New York thrives
+    on innovation, coding is about adapting, solving problems, and building things that last. Every
+    challenge is a chance to grow, every setback a lesson, and every success a new milestone.
+    I&apos;m excited to keep learning, creating, and shaping the digital world—one line of code at a
     time.&quot;
   </p>
 );
