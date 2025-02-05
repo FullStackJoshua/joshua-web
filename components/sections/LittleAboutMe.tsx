@@ -8,7 +8,7 @@ import SplitText from "@/TextAnimations/SplitText";
 
 const LittleAboutMe = () => {
   return (
-    <section id="about-section" className="px-7 pt-12 md:pt-40 text-white">
+    <section id="about-section" className="pt-12 md:pt-40 text-white">
       <div className="container pb-12 mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 md:pb-36 md:gap-0 items-start ">
         <div>
           <Header />

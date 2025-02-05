@@ -25,7 +25,7 @@ const Marquee = () => {
   ];
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto md:px-28">
       <MarqueeItem images={upperMarquee} from={"0%"} to={"-100%"} />
       <MarqueeItem images={lowerMarquee} from={"-100%"} to={"0%"} />
     </div>

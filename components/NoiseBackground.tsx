@@ -33,7 +33,7 @@ const NoiseBackground: React.FC<NoiseBackgroundProps> = ({ mode, intensity = 0.0
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const noiseColorHex = mode === "dark" ? "#F5F5F5" : "#131313";
+    const noiseColorHex = mode === "dark" ? "#eeede9" : "#131313";
     const noiseColor = hexToRgb(noiseColorHex);
 
     const imageData = ctx.createImageData(width, height);
@@ -48,7 +48,7 @@ const NoiseBackground: React.FC<NoiseBackgroundProps> = ({ mode, intensity = 0.0
     setNoiseDataUrl(dataUrl);
   }, [mode, intensity]);
 
-  const wrapperBackgroundColor = mode === "dark" ? "#131313" : "#F5F5F5";
+  const wrapperBackgroundColor = mode === "dark" ? "#131313" : "#eeede9";
 
   return (
     <div

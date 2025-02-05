@@ -48,6 +48,7 @@ body {
   width: 30px;
   height: 30px;
 }
+
 .MyGradient {
   mask-image: linear-gradient(
     to right,
@@ -57,6 +58,7 @@ body {
     rgba(0, 0, 0, 0)
   );
 }
+
 /* * {
   border: 1px solid red;
 } */
