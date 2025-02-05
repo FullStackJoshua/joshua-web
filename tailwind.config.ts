@@ -18,12 +18,6 @@ const config: Config = {
         "background-dark": "#0a0a0a",
         "foreground-dark": "#ededed",
       },
-      backgroundImage: {
-        noiseonwhite: "url('/effects/GrainEffectonWhite.svg')",
-        noiseonblack: "url('/effects/GrainEffectonBlack.svg')",
-        cubeWhite: "url('/background/BgPattern.svg')",
-        cubeBlack: "url('/background/BgPattern.png')",
-      },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         satoshi: ["Satoshi", "sans-serif"],
@@ -36,7 +30,7 @@ const config: Config = {
         content3: "14px",
         button: "14px",
         lgTitle: "128px",
-        lgHeading: "96px",
+        lgHeading: "80px",
         lgContent: "30px",
         lgContent2: "30px",
         lgContent3: "24px",

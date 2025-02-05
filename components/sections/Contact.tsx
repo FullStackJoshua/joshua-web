@@ -9,7 +9,7 @@ import SplitText from "@/TextAnimations/SplitText";
 const Contact = () => {
   return (
     <NoiseBackground mode="light" intensity={0.1}>
-      <section id="contact" className="px-2 py-10 md:py-20">
+      <section id="contact" className="px-7 py-10 md:py-20">
         <div className="container mx-auto">
           <Header />
           <ContactForm />
@@ -86,7 +86,7 @@ const ContactForm = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:grid md:grid-cols-12 gap-6 max-w-6xl mx-auto"
+            className="md:grid md:grid-cols-12 gap-6 mx-auto"
           >
             <div className="relative border-b border-gray md:col-span-3">
               <input

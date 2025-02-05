@@ -13,11 +13,11 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="px-7 pb-10">
+    <section id="hero" className="px-7 pb-10 md:pb-40">
       <div className="container mx-auto">
         <IntroHeader />
-        <div className="max-w-6xl mx-auto">
-          <div className="md:flex md:flex-row-reverse md:items-center md:justify-between md:gap-16 lg:gap-32">
+        <div className="max-w-8xl md:pl-10 mx-auto">
+          <div className="md:flex md:flex-row-reverse md:items-center md:justify-between md:gap-16 lg:gap-48">
             <IntroParagraph />
             <Portrait />
           </div>
@@ -32,7 +32,7 @@ export default function Hero() {
 }
 
 const IntroHeader = () => (
-  <div className="lg:translate-y-1/4 title sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+  <div className="lg:translate-y-1/4 title md:text-lgTitle">
     <SplitText text="HI THERE -" />
     <SplitText text="I'M JOSHUA LIM" className="justify-end" />
   </div>
@@ -40,13 +40,14 @@ const IntroHeader = () => (
 
 const IntroParagraph = () => (
   <motion.p
-    className="content py-8 text-gray md:text-lgContent max-w-lg lg:mr-auto lg:pl-10"
+    className="content my-8 text-gray md:text-lgContent lg:mr-auto md:pl-10 max-w-3xl"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
   >
-    An experienced Full-Stack Web Developer proficient in all areas of web development, including
-    frontend, backend, and database management.
+    Experienced Full-Stack Web Developer with a deep understanding of frontend, backend, and
+    database architecture. Passionate about building scalable, efficient, and innovative web
+    solutions.
   </motion.p>
 );
 
@@ -56,7 +57,7 @@ const Portrait = () => (
     src="/me.svg"
     width={408}
     height={488}
-    className="rounded-md mx-auto md:mx-0 mb-4 w-full lg:max-w-xs"
+    className="rounded-md md:mx-0 mb-5 w-full lg:max-w-sm"
     priority
   />
 );
@@ -74,13 +75,13 @@ const Icon: React.FC<IconProps> = ({ src, alt, width, height, additionalClasses 
 );
 
 const Location = () => (
-  <div className="button md:text-lgButton text-gray flex items-center gap-1">
+  <div className="button md:text-lgButton text-gray flex items-center gap-2">
     <Icon
       src="/icons/globe.svg"
       alt="Globe icon"
-      width={15}
-      height={15}
-      additionalClasses="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5"
+      width={16}
+      height={16}
+      additionalClasses="md:w-4 md:h-4 lg:w-6 lg:h-6"
     />
     <span>Brooklyn, New York</span>
   </div>
@@ -88,7 +89,7 @@ const Location = () => (
 
 const ScrollForMore = ({ onClick }: { onClick: () => void }) => (
   <div className="button md:text-lgButton text-gray hidden md:flex md:items-center">
-    <button onClick={onClick} className="flex items-center gap-1">
+    <button onClick={onClick} className="flex items-center gap-2">
       <span>(Scroll For More)</span>
       <motion.div
         initial={{ y: 0 }}
@@ -98,9 +99,9 @@ const ScrollForMore = ({ onClick }: { onClick: () => void }) => (
         <Image
           src="/icons/arrowdown.svg"
           alt="Arrow Down Icon for scrolling"
-          width={25}
-          height={25}
-          className="md:w-4 md:h-4 lg:w-5 lg:h-5"
+          width={16}
+          height={16}
+          className="md:w-4 md:h-4 lg:w-6 lg:h-6"
         />
       </motion.div>
     </button>

@@ -22,7 +22,7 @@ const projects = [
 
 const ProjectsUI = () => {
   return (
-    <section className="text-white px-7 py-20">
+    <section className="text-white px-7 py-12 md:py-44">
       <div className="container mx-auto">
         <SplitText text="MY PROJECTS" className="title md:text-lgHeading font-bold mb-10" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
