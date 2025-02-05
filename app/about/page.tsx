@@ -80,18 +80,18 @@ const AboutPage = () => {
 
 const Header = () => (
   <header className="title md:text-lgTitle pb-5 md:pb-20">
-    <h1 className="block">
+    <div className="block">
       <SplitText text="PART-TIME" />
-    </h1>
-    <h1 className="block">
+    </div>
+    <div className="block">
       <SplitText text="I SIP COFFEE," />
-    </h1>
-    <h1 className="block pl-12 md:pl-32">
+    </div>
+    <div className="block pl-12 md:pl-32">
       <SplitText text="FULL-TIME I" />
-    </h1>
-    <h1 className="block pl-12 md:pl-32">
+    </div>
+    <div className="block pl-12 md:pl-32">
       <SplitText text="BREW IDEAS -" />
-    </h1>
+    </div>
   </header>
 );
 
