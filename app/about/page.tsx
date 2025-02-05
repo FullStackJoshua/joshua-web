@@ -97,11 +97,12 @@ const Header = () => (
 
 const Paragraph = () => (
   <p className="content md:text-lgContent text-gray italic">
-    "Growing up in New York City, I’ve always seen software development as a reflection of the
+    &quot;Growing up in New York City, I’ve always seen software development as a reflection of the
     city—fast-paced, constantly evolving, and full of possibilities. Just like New York thrives on
     innovation, coding is about adapting, solving problems, and building things that last. Every
     challenge is a chance to grow, every setback a lesson, and every success a new milestone. I’m
-    excited to keep learning, creating, and shaping the digital world—one line of code at a time."
+    excited to keep learning, creating, and shaping the digital world—one line of code at a
+    time.&quot;
   </p>
 );
 
