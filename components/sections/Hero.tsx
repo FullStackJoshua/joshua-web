@@ -21,7 +21,6 @@ export default function Hero() {
         <div className="max-w-8xl md:pl-10 mx-auto">
           <div className="md:flex md:flex-row-reverse md:items-center md:justify-between md:gap-16 lg:gap-48">
             <IntroParagraph />
-
             <Portrait />
           </div>
 
@@ -36,10 +35,10 @@ export default function Hero() {
 }
 
 const IntroHeader = () => (
-  <div className="lg:translate-y-1/4 title md:text-lgTitle">
+  <h1 className="lg:translate-y-1/4 title md:text-lgTitle">
     <SplitText text="HI THERE -" />
     <SplitText text="I'M JOSHUA LIM" className="justify-end" />
-  </div>
+  </h1>
 );
 
 const IntroParagraph = () => (
@@ -49,8 +48,8 @@ const IntroParagraph = () => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
   >
-    Experienced Software Developer. Passionate about building scalable, efficient, and innovative
-    web solutions.
+    Experienced Software Developer. I love solving complex problems and building web solutions that
+    are fast, scalable, and future-ready.
     <Socials />
   </motion.div>
 );

@@ -57,9 +57,9 @@ const Paragraph2 = () => (
     viewport={{ once: true, margin: "-100px" }}
     transition={{ duration: 2, ease: "easeOut" }}
   >
-    Proficient in Java, Python, TypeScript, React, and Next.js. Passionate about solving real-world
-    problems through technology, I thrive in collaborative environments and continuously seek
-    opportunities to grow.
+    Java, Python, TypeScript, React, and Next.js—building real-world solutions through technology.
+    Thriving in collaborative environments, I am always looking for new ways to refine my skills and
+    create impactful solutions.
   </motion.p>
 );
 
