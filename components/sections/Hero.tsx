@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SplitText from "@/TextAnimations/SplitText";
+import { footerItems } from "@/data";
+import Link from "next/link";
 
 export default function Hero() {
   const handleScrollToAbout = () => {
@@ -19,8 +21,10 @@ export default function Hero() {
         <div className="max-w-8xl md:pl-10 mx-auto">
           <div className="md:flex md:flex-row-reverse md:items-center md:justify-between md:gap-16 lg:gap-48">
             <IntroParagraph />
+
             <Portrait />
           </div>
+
           <div className="flex justify-between items-center">
             <Location />
             <ScrollForMore onClick={handleScrollToAbout} />
@@ -47,6 +51,7 @@ const IntroParagraph = () => (
   >
     Experienced Full-Stack Web Developer. Passionate about building scalable, efficient, and
     innovative web solutions.
+    <Socials />
   </motion.p>
 );
 
@@ -59,6 +64,30 @@ const Portrait = () => (
     className="rounded-md md:mx-0 mb-5 w-full lg:max-w-sm"
     priority
   />
+);
+
+const Socials = () => (
+  <div className="flex gap-4 justify-center items-center md:justify-start pt-5">
+    {footerItems.map((item) => (
+      <Link
+        key={item.path}
+        href={item.path}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Go to ${item.title}`}
+        className="flex items-center gap-2 text-gray hover:text-black hover:scale-105 transition"
+      >
+        <Image
+          src={item.icon}
+          alt={`${item.title} Icon`}
+          width={32}
+          height={32}
+          priority={item.title === "LinkedIn"}
+        />
+        <span className="hidden md:inline">{item.title}</span>
+      </Link>
+    ))}
+  </div>
 );
 
 interface IconProps {
