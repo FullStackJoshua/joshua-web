@@ -43,16 +43,16 @@ const IntroHeader = () => (
 );
 
 const IntroParagraph = () => (
-  <motion.p
+  <motion.div
     className="content my-8 text-gray md:text-lgContent lg:mr-auto md:pl-10 max-w-3xl"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
   >
-    Experienced Full-Stack Web Developer. Passionate about building scalable, efficient, and
-    innovative web solutions.
+    Experienced Software Developer. Passionate about building scalable, efficient, and innovative
+    web solutions.
     <Socials />
-  </motion.p>
+  </motion.div>
 );
 
 const Portrait = () => (
