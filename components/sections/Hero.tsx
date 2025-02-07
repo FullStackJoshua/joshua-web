@@ -45,9 +45,8 @@ const IntroParagraph = () => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
   >
-    Experienced Full-Stack Web Developer with a deep understanding of frontend, backend, and
-    database architecture. Passionate about building scalable, efficient, and innovative web
-    solutions.
+    Experienced Full-Stack Web Developer. Passionate about building scalable, efficient, and
+    innovative web solutions.
   </motion.p>
 );
 
