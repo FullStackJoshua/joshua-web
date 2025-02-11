@@ -25,7 +25,10 @@ export default function RootLayout({
           name="description"
           content="Experienced Full-Stack Web Developer proficient in frontend, backend, and database management."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
       </Head>
       <body className="overflow-x-hidden">
         <Nav />
