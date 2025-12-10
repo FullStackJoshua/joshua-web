@@ -57,7 +57,7 @@ const IntroParagraph = () => (
 const Portrait = () => (
   <Image
     alt="Portrait of Joshua Lim"
-    src="/me.svg"
+    src="/me.JPG"
     width={408}
     height={488}
     className="rounded-md md:mx-0 mb-5 w-full lg:max-w-sm"

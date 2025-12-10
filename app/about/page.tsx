@@ -109,7 +109,7 @@ const Paragraph = () => (
 const Portrait = () => (
   <Image
     alt="Portrait of Joshua Lim"
-    src="/me.svg"
+    src="/me2.JPG"
     width={408}
     height={488}
     className="rounded-md"
