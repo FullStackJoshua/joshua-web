@@ -18,7 +18,7 @@ export const footerItems = [
   },
   {
     title: "Blogspace",
-    path: "https://techpediablogs.com/",
+    path: "https://techpedia-blogs.vercel.app/",
     icon: "/icons/medium.svg",
   },
   {
