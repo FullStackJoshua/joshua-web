@@ -39,17 +39,15 @@ export const Nav = ({ className }: { className?: string }) => {
   };
 
   const NavItem = ({ item, index, hoveredIndex, setHoveredIndex }: NavItemProps) => {
-    const hoverTextColor = isProjectsPage ? "text-white" : "text-black";
-
     return (
       <Link
         key={item.path}
         href={item.path}
         target={item.title === "Blog" ? "_blank" : undefined}
         rel={item.title === "Blog" ? "noopener noreferrer" : undefined}
-        className={`button lg:text-lgButton text-gray hover:${hoverTextColor} relative group transition ${
-          isActive(item.path) ? "font-bold underline" : ""
-        }`}
+        className={`button lg:text-lgButton text-gray relative group transition ${
+          isProjectsPage ? "hover:text-white" : "hover:text-black"
+        } ${isActive(item.path) ? "font-bold underline" : ""}`}
         onMouseEnter={() => setHoveredIndex(index)}
         onMouseLeave={() => setHoveredIndex(null)}
       >
@@ -163,9 +161,9 @@ export const Nav = ({ className }: { className?: string }) => {
                           href={item.path}
                           target={item.title === "Blog" ? "_blank" : undefined}
                           rel={item.title === "Blog" ? "noopener noreferrer" : undefined}
-                          className={`button text-gray lg:text-lgButton hover:${
-                            isProjectsPage ? "text-white" : "text-black"
-                          } transition`}
+                          className={`button text-gray lg:text-lgButton transition ${
+                            isProjectsPage ? "hover:text-white" : "hover:text-black"
+                          }`}
                           onClick={() => setMenuOpen(false)}
                         >
                           {item.title}

@@ -1,26 +1,59 @@
-import emailjs from "@emailjs/browser";
+import { NextResponse } from "next/server";
 
-export async function POST(req: Request): Promise<Response> {
+export async function POST(req: Request) {
   try {
     const { name, email, message } = await req.json();
 
-    const result = await emailjs.send(
-      process.env.EMAILJS_SERVICE_ID!,
-      process.env.EMAILJS_TEMPLATE_ID!,
-      { name, email, message },
-      process.env.EMAILJS_PUBLIC_KEY!
-    );
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { success: false, error: "All fields are required." },
+        { status: 400 }
+      );
+    }
 
-    return new Response(JSON.stringify({ success: true, result }), {
-      status: 200,
+    const serviceId = process.env.EMAILJS_SERVICE_ID;
+    const templateId = process.env.EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("Missing EmailJS environment variables");
+      return NextResponse.json(
+        { success: false, error: "Email service is not configured." },
+        { status: 500 }
+      );
+    }
+
+    const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        service_id: serviceId,
+        template_id: templateId,
+        user_id: publicKey,
+        template_params: {
+          from_name: name,
+          from_email: email,
+          to_name: "Joshua",
+          message: message,
+        },
+      }),
     });
+
+    if (!response.ok) {
+      const text = await response.text();
+      console.error("EmailJS error:", text);
+      return NextResponse.json(
+        { success: false, error: "Failed to send email." },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Error in API route:", error);
-
-    return new Response(JSON.stringify({ success: false, error: "Failed to send email" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    console.error("Error in send-email route:", error);
+    return NextResponse.json(
+      { success: false, error: "An unexpected error occurred." },
+      { status: 500 }
+    );
   }
 }

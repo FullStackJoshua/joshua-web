@@ -1,5 +1,6 @@
 export const navItems = [
   { title: "About", path: "/about" },
+  { title: "Experience", path: "/experience" },
   { title: "Projects", path: "/projects" },
   { title: "Contact", path: "/#contact" },
   { title: "Blog", path: "https://techpedia-blogs.vercel.app/" },

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
 import NoiseBackground from "../NoiseBackground";
 import SplitText from "@/TextAnimations/SplitText";
@@ -25,9 +24,11 @@ const Header = () => (
     <SplitText text={' with a simple "Hello!"'} />
   </div>
 );
+
 const ContactForm = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,32 +38,33 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setSending(true);
 
     try {
-      console.log("Sending email with:", {
-        from_name: formData.name,
-        from_email: formData.email,
-        to_name: "Joshua",
-        message: formData.message,
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
       });
 
-      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          to_name: "Joshua",
-          message: formData.message,
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      );
+      const data = await response.json();
 
-      console.log("Email sent successfully:", result);
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "Failed to send message.");
+      }
+
       setSubmitted(true);
     } catch (err) {
       console.error("Failed to send email:", err);
-      setError("Something went wrong. Please try again later.");
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again later."
+      );
+    } finally {
+      setSending(false);
     }
   };
 
@@ -89,7 +91,11 @@ const ContactForm = () => {
             className="md:grid md:grid-cols-12 gap-6 mx-auto"
           >
             <div className="relative border-b border-gray md:col-span-3">
+              <label htmlFor="contact-name" className="sr-only">
+                Name
+              </label>
               <input
+                id="contact-name"
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -101,7 +107,11 @@ const ContactForm = () => {
             </div>
 
             <div className="relative border-b border-gray md:col-span-3">
+              <label htmlFor="contact-email" className="sr-only">
+                Email
+              </label>
               <input
+                id="contact-email"
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -113,7 +123,11 @@ const ContactForm = () => {
             </div>
 
             <div className="relative border-b border-gray md:col-span-6">
+              <label htmlFor="contact-message" className="sr-only">
+                Message
+              </label>
               <textarea
+                id="contact-message"
                 name="message"
                 placeholder="Message"
                 className="content w-full bg-transparent border-none text-lg placeholder-gray focus:outline-none focus:ring-0 md:text-lgContent"
@@ -125,9 +139,10 @@ const ContactForm = () => {
 
             <button
               type="submit"
-              className="col-span-3 mt-6 py-3 px-6 bg-black text-white rounded-md hover:bg-gray"
+              disabled={sending}
+              className="col-span-3 mt-6 py-3 px-6 bg-black text-white rounded-md hover:bg-gray disabled:opacity-50 disabled:cursor-not-allowed transition"
             >
-              Send Message
+              {sending ? "Sending..." : "Send Message"}
             </button>
           </motion.form>
         )}

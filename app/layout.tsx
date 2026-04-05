@@ -4,13 +4,52 @@ import "./globals.css";
 import Footer from "@/components/ui/Footer";
 import Contact from "@/components/sections/Contact";
 import Nav from "@/components/ui/Nav";
-import Head from "next/head";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "Joshua Portfolio",
-  description: "Joshua's Portfolio",
+  title: {
+    default: "Joshua Lim - Full-Stack Developer",
+    template: "%s | Joshua Lim",
+  },
+  description:
+    "Experienced Full-Stack Web Developer proficient in frontend, backend, and database management. Explore my projects, experience, and get in touch.",
+  keywords: [
+    "Joshua Lim",
+    "Full-Stack Developer",
+    "Web Developer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Portfolio",
+  ],
+  authors: [{ name: "Joshua Lim" }],
+  creator: "Joshua Lim",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Joshua Lim Portfolio",
+    title: "Joshua Lim - Full-Stack Developer",
+    description:
+      "Experienced Full-Stack Web Developer proficient in frontend, backend, and database management.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Joshua Lim - Full-Stack Developer",
+    description:
+      "Experienced Full-Stack Web Developer proficient in frontend, backend, and database management.",
+  },
+  metadataBase: new URL("https://joshualiim.vercel.app"),
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -20,17 +59,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <title>Joshua Lim - Full-Stack Developer</title>
-        <meta
-          name="description"
-          content="Experienced Full-Stack Web Developer proficient in frontend, backend, and database management."
-        />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-      </Head>
       <body className="overflow-x-hidden">
         <Nav />
         {children}
